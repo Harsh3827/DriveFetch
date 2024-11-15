@@ -2,39 +2,45 @@ package features;
 
 import java.util.*;
 
-public class SearchFrequency 
-{
-    private static TreeMap<String, Integer> search_Frequency_Map = new TreeMap<>();
+public class SearchFrequency {
+    // TreeMap to maintain the frequency of each car name
+    private static final TreeMap<String, Integer> searchFrequencyMap = new TreeMap<>();
 
-    // increase count by 1
-    public static void increment_Search_Frequency(String car_Name) {
-        search_Frequency_Map.put(car_Name, search_Frequency_Map.getOrDefault(car_Name, 0) + 1);
+    // Increase the frequency count for a given car name
+    public static void incrementSearchFrequency(String carName) {
+        searchFrequencyMap.put(carName, searchFrequencyMap.getOrDefault(carName, 0) + 1);
     }
 
-    // Update frequncy based on carlist from entry
-    public static void update_Search_Frequency(Set<String> car_List) {
-        for (String carr : car_List) {
-            increment_Search_Frequency(carr);
+    // Update frequency based on the car list
+    public static void updateSearchFrequency(Set<String> carList) {
+        for (String car : carList) {
+            incrementSearchFrequency(car);
         }
     }
 
-    // Sort carList by search frequncy
-    public static List<String> sort_CarListBy_Frequency(Set<String> car_List) {
-        List<String> sorted_CarList = new ArrayList<>(search_Frequency_Map.keySet());
-
-        // Sort the list 
-        sorted_CarList.sort(Comparator.comparingInt(search_Frequency_Map::get).reversed());
-
-        return sorted_CarList;
+    // Get a sorted list of cars based on search frequency (descending order)
+    private static List<Map.Entry<String, Integer>> getSortedCarListByFrequency() {
+        List<Map.Entry<String, Integer>> sortedCarList = new ArrayList<>(searchFrequencyMap.entrySet());
+        sortedCarList.sort((entry1, entry2) -> entry2.getValue().compareTo(entry1.getValue()));  // Sort in descending order of frequency
+        return sortedCarList;
     }
 
-    // Display the widely searched cars
-    public static List<String> display_MostSearched_Cars(Set<String> car_List) {
-        List<String> sorted_CarList = sort_CarListBy_Frequency(search_Frequency_Map.keySet());
-        for (Map.Entry<String, Integer> entry : search_Frequency_Map.entrySet()) {
-            System.out.println(entry.getKey() + ": " + entry.getValue());
+    // Display the most searched cars with their frequencies and return the sorted list
+    public static List<String> displayMostSearchedCars(Set<String> carList) {
+        // Update the frequency map with the provided car list
+        updateSearchFrequency(carList);
+
+        // Get sorted list by frequency
+        List<Map.Entry<String, Integer>> sortedCarList = getSortedCarListByFrequency();
+
+        // Display each car with its search frequency
+        sortedCarList.forEach(entry -> System.out.println(entry.getKey() + ": " + entry.getValue()));
+
+        // Return the car names sorted by frequency
+        List<String> sortedCarNames = new ArrayList<>();
+        for (Map.Entry<String, Integer> entry : sortedCarList) {
+            sortedCarNames.add(entry.getKey());
         }
-     
-        return sorted_CarList;
+        return sortedCarNames;
     }
 }

@@ -174,9 +174,9 @@ public class Entry {
                         }
                     } while (!check);
 
-                    SearchFrequency.increment_Search_Frequency(preferred_Car_Name);
+                    SearchFrequency.incrementSearchFrequency(preferred_Car_Name);
 
-                    List<String> most_Searched_Cars = SearchFrequency.display_MostSearched_Cars(car_List);
+                    List<String> most_Searched_Cars = SearchFrequency.displayMostSearchedCars(car_List);
 
                     if (!most_Searched_Cars.isEmpty()) {
                         System.out.println("Most Searched Cars:");

@@ -6,6 +6,7 @@
   import org.openqa.selenium.WebElement;
   import org.openqa.selenium.chrome.ChromeDriver;
   import org.openqa.selenium.chrome.ChromeOptions;
+  import org.openqa.selenium.interactions.Actions;
   import org.openqa.selenium.support.ui.ExpectedConditions;
   import org.openqa.selenium.support.ui.Select;
   import org.openqa.selenium.support.ui.WebDriverWait;
@@ -44,10 +45,25 @@ public class BudgetCanadaCrawl {
     public static void init_Driver() {
     	
     	 Logger.getLogger("org.openqa.selenium.devtools.CdpVersionFinder").setLevel(Level.OFF);
-       chrome_Options.addArguments("--headless");
+       //chrome_Options.addArguments("--headless");
         driverr = new ChromeDriver(chrome_Options);
-        waitt = new WebDriverWait(driverr, Duration.ofSeconds(5));
+        Actions actions = new Actions(driverr);
+        waitt = new WebDriverWait(driverr, Duration.ofSeconds(30));
         driverr.get(budget_Url);
+        // Focus on the box and decline the offer
+        try {
+            WebElement alertBox = waitt.until(ExpectedConditions.visibilityOfElementLocated(By.id("bx-form-2259663-step-1")));
+            actions.moveToElement(alertBox).click().perform();
+
+            WebElement declineOffer = waitt.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button[type='reset']")));
+            declineOffer.click();
+        }
+        catch (Exception e) {
+            System.out.println("No pop-up found, continuing...");
+        }
+
+        // Refresh the page after handling the pop-up
+        driverr.navigate().refresh();
     }
 
     public static String user_Pickup_Loc = "";
