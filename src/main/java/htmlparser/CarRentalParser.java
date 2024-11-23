@@ -63,7 +63,7 @@ public class CarRentalParser {
 
 
           
-                CarInfo carInfo = new CarInfo(car_Name, car_Price, passenger_Capacity, car_Group, transmission_Type, large_Bag, small_Bag, "CarRental");
+                CarInfo carInfo = new CarInfo(car_Name, car_Price, passenger_Capacity, car_Group, transmission_Type, "CarRental","info");
                 // add record
                 car_Innfo_Llist.add(carInfo);
             }

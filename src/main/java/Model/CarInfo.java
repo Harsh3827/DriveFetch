@@ -1,6 +1,5 @@
 package Model;
 
-// Model/entity for storing car information
 public class CarInfo {
     // Attributes
     private String name;
@@ -8,21 +7,23 @@ public class CarInfo {
     private int passengerCapacity;
     private String carGroup;
     private String transmissionType;
-    private int largeBag;
-    private int smallBag;
-    private String rentalCompany;
+    private String carCompany;
+    private String link;
 
-    // Constructor
+    // No-argument constructor (needed by Jackson for deserialization)
+    public CarInfo() {
+    }
+
+    // Constructor with parameters
     public CarInfo(String name, double price, int passengerCapacity, String carGroup,
-                   String transmissionType, int largeBag, int smallBag, String rentalCompany) {
+                   String transmissionType, String carCompany, String link) {
         this.name = name;
         this.price = price;
         this.passengerCapacity = passengerCapacity;
         this.carGroup = carGroup;
         this.transmissionType = transmissionType;
-        this.largeBag = largeBag;
-        this.smallBag = smallBag;
-        this.rentalCompany = rentalCompany;
+        this.carCompany = carCompany;
+        this.link = link;
     }
 
     // Getter and setter methods
@@ -30,43 +31,63 @@ public class CarInfo {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public double getPrice() {
         return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public int getPassengerCapacity() {
         return passengerCapacity;
     }
 
+    public void setPassengerCapacity(int passengerCapacity) {
+        this.passengerCapacity = passengerCapacity;
+    }
+
     public String getCarGroup() {
         return carGroup;
+    }
+
+    public void setCarGroup(String carGroup) {
+        this.carGroup = carGroup;
     }
 
     public String getTransmissionType() {
         return transmissionType;
     }
 
-    public int getLargeBag() {
-        return largeBag;
+    public void setTransmissionType(String transmissionType) {
+        this.transmissionType = transmissionType;
     }
 
-    public int getSmallBag() {
-        return smallBag;
+    public String getCarCompany() {
+        return carCompany;
     }
 
-    public String getRentalCompany() {
-        return rentalCompany;
+    public void setCarCompany(String carCompany) {
+        this.carCompany = carCompany;
     }
 
-    public void setRentalCompany(String rentalCompany) {
-        this.rentalCompany = rentalCompany;
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 
     // toString method
     @Override
     public String toString() {
         return "CarInfo [name=" + name + ", price=" + price + ", passengerCapacity=" + passengerCapacity
-                + ", carGroup=" + carGroup + ", transmissionType=" + transmissionType + ", largeBag=" + largeBag
-                + ", smallBag=" + smallBag + ", rentalCompany=" + rentalCompany + "]";
+                + ", carGroup=" + carGroup + ", transmissionType=" + transmissionType + ", carCompany=" + carCompany
+                + ", link=" + link + "]";
     }
 }

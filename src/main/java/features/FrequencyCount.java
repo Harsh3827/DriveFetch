@@ -15,7 +15,7 @@ public class FrequencyCount {
 	// main mtd
     public static void main(String[] args) {
     	// path name
-        String path_Of_File = "JsonData/filtered_car_deals.json";
+        String path_Of_File = "JsonData/All.json";
 
         try {
         	// objectmapper

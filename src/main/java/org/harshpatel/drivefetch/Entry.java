@@ -6,24 +6,29 @@ import features.*;
 import htmlparser.AvisParser;
 import htmlparser.BudgetParser;
 import htmlparser.CarRentalParser;
+import org.openqa.selenium.chrome.ChromeDriver;
 import webcrawling.AvisCanadaCrawl;
 import webcrawling.BudgetCanadaCrawl;
 import webcrawling.CarRentalWebCrawl;
+import webcrawling.orbitzCrawl;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static webcrawling.orbitzCrawl.convertToISOFormat;
+
 public class Entry {
 
     // Initialize global scanner for user input
     static Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UnsupportedEncodingException {
         while (true) {
             System.out.println("\n-------------------------------------------------");
             System.out.println("       Welcome to the Drive Fetch Application");
@@ -41,7 +46,7 @@ public class Entry {
                     break;
                 case 2:
                     if (checkHtmlFiles()) {
-                        List<CarInfo> carInfoList = performParsing();
+                        List<CarInfo> carInfoList = getAllCarDetails();
                         filter_Car_Deals(carInfoList);
                     } else {
                         System.out.println("No HTML files available for parsing.");
@@ -110,6 +115,43 @@ public class Entry {
         return false;
     }
 
+    public static List<CarInfo> getAllCarDetails() {
+        List<CarInfo> listOfCars = new ArrayList<>();
+
+        // Read data from individual JSON files and add to the list
+        readCrawledFile(listOfCars, "CarRentalsData.json");
+        readCrawledFile(listOfCars, "Web_Crawl_Orbitz.json");
+       // readCrawledFile(listOfCars, "JsonData/CarRentalsIsData.json");
+
+        // Save the combined data to All.json
+        save_CarInfo_To_Json(listOfCars, "All");
+
+        return listOfCars;
+    }
+
+
+    private static void readCrawledFile(List<CarInfo> listOfCars, String filePath) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        File file = new File(filePath);
+        try {
+            // Read car info array from the JSON file and add to the list
+            CarInfo[] cars = objectMapper.readValue(file, CarInfo[].class);
+            listOfCars.addAll(Arrays.asList(cars));
+        } catch (IOException e) {
+            System.err.println("Error reading file " + filePath + ": " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+
+    private static void fetch_Car_Analysis(List<CarInfo> CarInfo_List) {
+        Map<String, Integer> frequencyMap = FrequencyCount.get_Frequency_Count("D:\\Project\\DriveFetch\\JsonData\\All.json.json");
+
+        for (Map.Entry<String, Integer> entry : frequencyMap.entrySet()) {
+            System.out.println("Total Available \"" + entry.getKey() + "\" cars: \"" + entry.getValue() + "\"");
+        }
+    }
+
     private static boolean checkHtmlFiles() {
         return files_Avis() || files_InBudget() || files_CarRental();
     }
@@ -158,7 +200,7 @@ public class Entry {
                     System.out.println(car_List);
 
                     try {
-                        SpellChecking.initialize_Dictionary("JsonData/filtered_car_deals.json");
+                        SpellChecking.initialize_Dictionary("JsonData/All.json.json");
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
@@ -249,7 +291,7 @@ public class Entry {
                         preferredLuggageCapacity = scanner.nextInt();
                     }
                     while (!inputValidator.isValidInteger(preferredLuggageCapacity));
-                    process_Filter = filterBy_Luggage_Capacity(CarInfo_List, preferredLuggageCapacity);
+                  //  process_Filter = filterBy_Luggage_Capacity(CarInfo_List, preferredLuggageCapacity);
                     display_Car_List(process_Filter);
                     break;
                 case 7:
@@ -262,14 +304,6 @@ public class Entry {
                 default:
                     System.out.println("Invalid option. Please enter a valid option.");
             }
-        }
-    }
-
-    private static void fetch_Car_Analysis(List<CarInfo> CarInfo_List) {
-        Map<String, Integer> frequencyMap = FrequencyCount.get_Frequency_Count("JsonData/filtered_car_deals.json");
-
-        for (Map.Entry<String, Integer> entry : frequencyMap.entrySet()) {
-            System.out.println("Total Available \"" + entry.getKey() + "\" cars: \"" + entry.getValue() + "\"");
         }
     }
 
@@ -307,8 +341,8 @@ public class Entry {
 
     private static List<CarInfo> filterBy_CarName(List<CarInfo> CarInfo_List, String preferred_CarName) {
         try {
-            SpellChecking.initialize_Dictionary("JsonData/filtered_car_deals.json");
-            WordCompletion.initialize_Dictionary_From_JsonFile("JsonData/filtered_car_deals.json");
+            SpellChecking.initialize_Dictionary("JsonData/All.json.json");
+            WordCompletion.initialize_Dictionary_From_JsonFile("JsonData/All.json.json");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -362,6 +396,7 @@ public class Entry {
                 .collect(Collectors.toList());
     }
 
+/*
     private static List<CarInfo> filterBy_Luggage_Capacity(List<CarInfo> carInfoList, int preferredLuggageCapacity) {
         // Find the car with the highest luggage capacity
         int maxLuggageCapacity = carInfoList.stream()
@@ -378,24 +413,28 @@ public class Entry {
                 .sorted(Comparator.comparingDouble(CarInfo::getPrice))
                 .collect(Collectors.toList()); // Compatible with Java versions below 16
     }
+*/
 
 
 
     private static void display_Car_List(List<CarInfo> CarInfo_List) {
-
         System.out.println("+-------------------------+----------------------------------------+-------------------+------------------------+------------------------+--------------------------+--------------------+");
-        System.out.println("|      Car Group          |          Car Model                     |    Rent Price     |   Passenger Capacity   |    Luggage Capacity    |     Transmission Type    |    Rental Company  |");
+        System.out.println("|      Car Group          |          Car Model                     |    Rent Price     |   Passenger Capacity   |    Transmission Type    |     Rental Company      |");
         System.out.println("+-------------------------+----------------------------------------+-------------------+------------------------+------------------------+--------------------------+--------------------+");
 
         for (CarInfo CarInfo : CarInfo_List) {
-            System.out.printf("| %-23s | %-38s | $%-16.2f | %-22s | %-22s | %-24s | %-18s |\n",
-                    CarInfo.getCarGroup(), CarInfo.getName(), CarInfo.getPrice(),
-                    CarInfo.getPassengerCapacity(), CarInfo.getLargeBag() + CarInfo.getSmallBag(),
-                    CarInfo.getTransmissionType(), CarInfo.getRentalCompany());
+            System.out.printf("| %-23s | %-38s | $%-16.2f | %-22d | %-24s | %-22s |\n",
+                    CarInfo.getCarGroup(),
+                    CarInfo.getName(),
+                    CarInfo.getPrice(),
+                    CarInfo.getPassengerCapacity(),
+                    CarInfo.getTransmissionType(),
+                    CarInfo.getCarCompany());
         }
 
         System.out.println("+-------------------------+----------------------------------------+-------------------+------------------------+------------------------+--------------------------+--------------------+");
     }
+
 
     private static void save_CarInfo_To_Json(List<CarInfo> CarInfoo_Llist, String file_name) {
         ObjectMapper obj_Mapper = new ObjectMapper();
@@ -436,12 +475,12 @@ public class Entry {
     }
 
     @SuppressWarnings("deprecation")
-    private static void performCrawling() {
-        AvisCanadaCrawl.init_Driver();
-        System.out.println("avis");
-        BudgetCanadaCrawl.init_Driver();
-        System.out.println("budget");
-        CarRentalWebCrawl.initDriver();
+    private static void performCrawling() throws UnsupportedEncodingException {
+       //AvisCanadaCrawl.init_Driver();
+        //System.out.println("avis");
+        //BudgetCanadaCrawl.init_Driver();
+        //System.out.println("budget");
+        //CarRentalWebCrawl.initDriver();
         System.out.println("carrental");
 
         Scanner scanner = new Scanner(System.in);
@@ -459,11 +498,11 @@ public class Entry {
                 pickup_Location = scanner.nextLine();
             } while (!inputValidator.isValidCityName(pickup_Location));
 
-            String final_Selected_PickupLoc = AvisCanadaCrawl.resolve_Location(pickup_Location, "PicLoc_value", "PicLoc_dropdown");
-            BudgetCanadaCrawl.resolve_Location(final_Selected_PickupLoc.split(",")[0], "PicLoc_value", "PicLoc_dropdown");
-            CarRentalWebCrawl.handle_PickUp_Location(final_Selected_PickupLoc);
-            CarRentalWebCrawl.handle_PickUp_Location(final_Selected_PickupLoc.split(",")[0]);
-            BudgetCanadaCrawl.resolve_Location(pickup_Location, "PicLoc_value", "PicLoc_dropdown");
+            // String final_Selected_PickupLoc = AvisCanadaCrawl.resolve_Location(pickup_Location, "PicLoc_value", "PicLoc_dropdown");
+            //BudgetCanadaCrawl.resolve_Location(final_Selected_PickupLoc.split(",")[0], "PicLoc_value", "PicLoc_dropdown");
+            //CarRentalWebCrawl.handle_PickUp_Location(final_Selected_PickupLoc);
+            //CarRentalWebCrawl.handle_PickUp_Location(final_Selected_PickupLoc.split(",")[0]);
+            //BudgetCanadaCrawl.resolve_Location(pickup_Location, "PicLoc_value", "PicLoc_dropdown");
 
             String dropOff_Location;
             do {
@@ -472,8 +511,8 @@ public class Entry {
 
             if (same_Location_Response.equals("n")) {
                 String finalSelectedDropOffLoc = AvisCanadaCrawl.resolve_Location(dropOff_Location, "DropLoc_value", "DropLoc_dropdown");
-                BudgetCanadaCrawl.resolve_Location(finalSelectedDropOffLoc, "DropLoc_value", "DropLoc_dropdown");
-                CarRentalWebCrawl.handle_DropOff_Location(finalSelectedDropOffLoc);
+              //  BudgetCanadaCrawl.resolve_Location(finalSelectedDropOffLoc, "DropLoc_value", "DropLoc_dropdown");
+                //CarRentalWebCrawl.handle_DropOff_Location(finalSelectedDropOffLoc);
             }
 
             String pickup_Date;
@@ -488,13 +527,22 @@ public class Entry {
                 return_Date = scanner.nextLine();
             } while (!inputValidator.validateReturnDate(pickup_Date, return_Date));
 
-            CarRentalWebCrawl.resolve_Date(pickup_Date, return_Date);
+            //CarRentalWebCrawl.resolve_Date(pickup_Date, return_Date);
 
             pickup_Date = convert_Date_Format(pickup_Date);
             return_Date = convert_Date_Format(return_Date);
 
-            AvisCanadaCrawl.resolve_Date(pickup_Date, return_Date);
-            BudgetCanadaCrawl.resolve_Date(pickup_Date, return_Date);
+            String pickup_Date_orbit = convertToISOFormat(pickup_Date,"MM/dd/yyyy");
+            String return_Date_orbit = convertToISOFormat(return_Date,"MM/dd/yyyy");
+
+
+            int duration = orbitzCrawl.calculateDurationISO(pickup_Date_orbit,return_Date_orbit);
+
+            CarRentalWebCrawl.WebCrawlCarRentals(pickup_Date_orbit,return_Date_orbit,duration,pickup_Location);
+            //orbitzCrawl.WebCrawlOrbitz(pickup_Date_orbit,return_Date_orbit,duration,pickup_Location);
+
+           // AvisCanadaCrawl.resolve_Date(pickup_Date, return_Date);
+         //   BudgetCanadaCrawl.resolve_Date(pickup_Date, return_Date);
 
             String pickup_Time;
             do {
@@ -578,13 +626,13 @@ public class Entry {
                 }
 
             } while (!inputValidator.isValidTime(return_Time));
-
+            orbitzCrawl.WebCrawlOrbitz(pickup_Date_orbit,return_Date_orbit,duration,pickup_Location,pickup_Time,return_Time);
             try {
-                AvisCanadaCrawl.resolve_Time(pickup_Time, return_Time);
-                BudgetCanadaCrawl.resolve_Time(pickup_Time, return_Time);
-                CarRentalWebCrawl.resolve_Time(pickup_Time, return_Time);
-                AvisCanadaCrawl.fetch_Car_Deals();
-                BudgetCanadaCrawl.fetch_Car_Deals();
+              //  AvisCanadaCrawl.resolve_Time(pickup_Time, return_Time);
+               // BudgetCanadaCrawl.resolve_Time(pickup_Time, return_Time);
+                //CarRentalWebCrawl.resolve_Time(pickup_Time, return_Time);
+              //  AvisCanadaCrawl.fetch_Car_Deals();
+              //  BudgetCanadaCrawl.fetch_Car_Deals();
 
             } catch (Exception ex) {
                 System.out.println("Exception caught: No cars available at that location. Please try again!");
@@ -593,15 +641,16 @@ public class Entry {
             System.out.print("Do you want to continue? (yes/no): ");
             response = scanner.nextLine();
             if (response.equalsIgnoreCase("yes")) {
-                AvisCanadaCrawl.reset_Driver();
-                BudgetCanadaCrawl.reset_Driver();
-                CarRentalWebCrawl.reset_Driver();
+             //   AvisCanadaCrawl.reset_Driver();
+               // BudgetCanadaCrawl.reset_Driver();
+             //   CarRentalWebCrawl.reset_Driver();
             }
         } while (response.equalsIgnoreCase("yes"));
 
-        AvisCanadaCrawl.close_Driver();
-        BudgetCanadaCrawl.close_Driver();
-        CarRentalWebCrawl.close_Driver();
+      //  AvisCanadaCrawl.close_Driver();
+       // BudgetCanadaCrawl.close_Driver();
+        CarRentalWebCrawl.closeDriver();
+        orbitzCrawl.closeDriver();
     }
 
     public static String convert_Date_Format(String inputtDdate) {

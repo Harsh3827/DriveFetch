@@ -3,6 +3,7 @@ package features;
 import webcrawling.AvisCanadaCrawl;
 import webcrawling.BudgetCanadaCrawl;
 import webcrawling.CarRentalWebCrawl;
+import webcrawling.orbitzCrawl;
 
 import java.util.*;
 
@@ -72,9 +73,9 @@ public class PageRanking {
             String web_site = entryy.getKey();
             if (entryy.getKey().contains("avis")){
                 web_site = AvisCanadaCrawl.avis_Url;
-            } else if (entryy.getKey().contains("budget")) {
-                web_site = BudgetCanadaCrawl.budget_Url;
             } else if (entryy.getKey().contains("orbitz")) {
+                web_site = orbitzCrawl.avis_Url;
+            } else if (entryy.getKey().contains("carrental")) {
                 web_site = CarRentalWebCrawl.car_rental_Url;
             }
             System.out.println(countt+". "+web_site);
