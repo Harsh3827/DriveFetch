@@ -145,7 +145,7 @@ public class Entry {
 
 
     private static void fetch_Car_Analysis(List<CarInfo> CarInfo_List) {
-        Map<String, Integer> frequencyMap = FrequencyCount.get_Frequency_Count("D:\\Project\\DriveFetch\\JsonData\\All.json.json");
+        Map<String, Integer> frequencyMap = FrequencyCount.get_Frequency_Count("D:\\Project\\DriveFetch\\JsonData\\All.json");
 
         for (Map.Entry<String, Integer> entry : frequencyMap.entrySet()) {
             System.out.println("Total Available \"" + entry.getKey() + "\" cars: \"" + entry.getValue() + "\"");
@@ -200,7 +200,7 @@ public class Entry {
                     System.out.println(car_List);
 
                     try {
-                        SpellChecking.initialize_Dictionary("JsonData/All.json.json");
+                        SpellChecking.initialize_Dictionary("JsonData/All.json");
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
@@ -341,8 +341,8 @@ public class Entry {
 
     private static List<CarInfo> filterBy_CarName(List<CarInfo> CarInfo_List, String preferred_CarName) {
         try {
-            SpellChecking.initialize_Dictionary("JsonData/All.json.json");
-            WordCompletion.initialize_Dictionary_From_JsonFile("JsonData/All.json.json");
+            SpellChecking.initialize_Dictionary("JsonData/All.json");
+            WordCompletion.initialize_Dictionary_From_JsonFile("JsonData/All.json");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

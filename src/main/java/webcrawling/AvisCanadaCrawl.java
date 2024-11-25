@@ -30,6 +30,7 @@ public class AvisCanadaCrawl {
 
     public static void init_Driver() {
         Logger.getLogger("org.openqa.selenium.devtools.CdpVersionFinder").setLevel(Level.OFF);
+        chrome_Options.addArguments("--headless");
         driverr = new ChromeDriver(chrome_Options);
         Actions actions = new Actions(driverr);
         wwait = new WebDriverWait(driverr, Duration.ofSeconds(30));
@@ -64,7 +65,7 @@ public class AvisCanadaCrawl {
         }
     }
 
-    static ChromeOptions chrome_Options = new ChromeOptions();
+    public static ChromeOptions chrome_Options = new ChromeOptions();
     static WebDriver driverr;
     static WebDriverWait wwait;
 

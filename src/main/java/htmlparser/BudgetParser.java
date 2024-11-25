@@ -119,7 +119,7 @@ public class BudgetParser {
                 //System.out.println(small_Bag);
                 //System.out.println("------------");
                 // create car info 
-                CarInfo CarInfo = new CarInfo(car_Name, car_Price, passenger_Capacity, car_Group, transmission_Type, large_Bag, small_Bag, rental_Company);
+                CarInfo CarInfo = new CarInfo(car_Name, car_Price, passenger_Capacity, car_Group, transmission_Type, rental_Company,"None");
                 // add data
                 CarInfo.toString();
                 CCarInfo_Llist.add(CarInfo);

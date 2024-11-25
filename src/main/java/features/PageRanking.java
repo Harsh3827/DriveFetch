@@ -18,7 +18,7 @@ public class PageRanking {
     }
 
     public void calculate_Page_Rank(Map<String, Integer> document_Frequencies) {
-    
+
         if (document_Frequencies != null) {
             // Simple ranking based on frequency (replace with more advanced ranking)
             page_Scores.putAll(document_Frequencies);
@@ -28,9 +28,9 @@ public class PageRanking {
         } else {
             System.out.println("Error: Document frequencies are null");
         }
-    	
+
     }
-// get ranked pages
+    // get ranked pages
     public List<Map.Entry<String, Integer>> get_Ranked_Pages() {
         // Get and return the ranked pages
         List<Map.Entry<String, Integer>> ranked_Pages = new ArrayList<>();
@@ -42,7 +42,7 @@ public class PageRanking {
         return ranked_Pages;
     }
 
-    
+
 
     public static void show_Ranking(String key_word){
         B_Tree b_Tree = InvertedIndexing.index_Documents_InFolder(new String[]{"AvisFiles/","BudgetFiles/","CarRentalFiles/"});
@@ -68,8 +68,8 @@ public class PageRanking {
         List<Map.Entry<String, Integer>> ranked_Pages = page_Rank.get_Ranked_Pages();
         int countt = 1;
         for (Map.Entry<String, Integer> entryy : ranked_Pages) {
-           
-       
+
+
             String web_site = entryy.getKey();
             if (entryy.getKey().contains("avis")){
                 web_site = AvisCanadaCrawl.avis_Url;
@@ -83,7 +83,7 @@ public class PageRanking {
         }
     }
     public static void main(String[] args) {
-    	 B_Tree bTree = InvertedIndexing.index_Documents_InFolder(new String[]{"AvisFiles","BudgetFiles","OrbitzFiles"});
+        B_Tree bTree = InvertedIndexing.index_Documents_InFolder(new String[]{"AvisFiles","BudgetFiles","OrbitzFiles"});
 
         Map<String, Integer> documentFrequencies = bTree.searchh("kia");
 

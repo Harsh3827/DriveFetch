@@ -1,9 +1,6 @@
   package webcrawling;
 
-  import org.openqa.selenium.By;
-  import org.openqa.selenium.JavascriptExecutor;
-  import org.openqa.selenium.WebDriver;
-  import org.openqa.selenium.WebElement;
+  import org.openqa.selenium.*;
   import org.openqa.selenium.chrome.ChromeDriver;
   import org.openqa.selenium.chrome.ChromeOptions;
   import org.openqa.selenium.interactions.Actions;
@@ -21,7 +18,7 @@
 
 public class BudgetCanadaCrawl {
 
-    public static String budget_Url = "https://www.budget.ca/en/home";
+    public static String budget_Url = "https://www.budget.ca/en/reservation#/time-and-place";
 
     private static Hashtable<String, String> urlMap = new Hashtable<String, String>();
 
@@ -43,28 +40,38 @@ public class BudgetCanadaCrawl {
     static WebDriverWait waitt;
 
     public static void init_Driver() {
-    	
-    	 Logger.getLogger("org.openqa.selenium.devtools.CdpVersionFinder").setLevel(Level.OFF);
-       //chrome_Options.addArguments("--headless");
+        Logger.getLogger("org.openqa.selenium.devtools.CdpVersionFinder").setLevel(Level.OFF);
+
+        // Initialize WebDriver and Chrome Options
         driverr = new ChromeDriver(chrome_Options);
         Actions actions = new Actions(driverr);
         waitt = new WebDriverWait(driverr, Duration.ofSeconds(30));
+
+        // Navigate to the URL
         driverr.get(budget_Url);
-        // Focus on the box and decline the offer
+
         try {
+            // Wait for the alert box to be visible
             WebElement alertBox = waitt.until(ExpectedConditions.visibilityOfElementLocated(By.id("bx-form-2259663-step-1")));
+
+            // Perform an action if the alert box is found
             actions.moveToElement(alertBox).click().perform();
 
+            // Handle decline button within the alert box
             WebElement declineOffer = waitt.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button[type='reset']")));
             declineOffer.click();
-        }
-        catch (Exception e) {
+
+            System.out.println("Pop-up handled successfully.");
+        } catch (TimeoutException e) {
             System.out.println("No pop-up found, continuing...");
+            // If no pop-up is found within the timeout, refresh the page
+            driverr.navigate().refresh();
         }
 
         // Refresh the page after handling the pop-up
         driverr.navigate().refresh();
     }
+
 
     public static String user_Pickup_Loc = "";
 
@@ -183,8 +190,10 @@ public class BudgetCanadaCrawl {
             new_Height = Integer.parseInt(js_Executor.executeScript("return document.body.scrollHeight").toString());
         } while (new_Height > current_Height);
     }
+    static WebDriverWait waiting;
+    public static Hashtable<String, String> fetch_Car_Deals() throws InterruptedException {
 
-    public static Hashtable<String, String> fetch_Car_Deals() {
+        Thread.sleep(Duration.ofSeconds(30).toMillis());
         driverr.findElement(By.id("res-home-select-car")).click();
 
         if (check_For_Warning()) {
