@@ -1,0 +1,36 @@
+london
+windsor
+toronto
+vancouver
+montreal
+ottawa
+calgary
+edmonton
+moncton
+north bay
+halifax
+hamilton
+quebec city
+winnipeg
+kitchener
+timmins
+courtenay
+los angeles
+denver
+ontario
+allentown
+atlanta
+oakland
+waterloo
+chicago
+las vegas
+orlando
+san francisco
+boston
+houston
+detroit
+philadelphia
+san diego
+austin
+nashville
+washington

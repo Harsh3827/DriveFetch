@@ -167,8 +167,8 @@ public class inputValidator {
         boolean isValid = CITY_NAME_PATTERN.matcher(cityName).matches();
         if (isValid) {
             try {
-                SpellChecking.initialize_Dictionary("D:\\ACC\\DriveFetch\\data\\dictionaryCheck.txt");
-                WordCompletion.initializeDictionary("D:\\ACC\\DriveFetch\\data\\dictionaryCheck.txt");
+                SpellChecking.initialize_Dictionary("D:\\Project\\DriveFetch\\data\\dictionaryCheck.txt");
+                WordCompletion.initializeDictionary("D:\\Project\\DriveFetch\\data\\dictionaryCheck.txt");
                 isValid = SpellChecking.check_Spelling(cityName);
 
                 if (!isValid) {
