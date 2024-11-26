@@ -7,10 +7,7 @@ import htmlparser.AvisParser;
 import htmlparser.BudgetParser;
 import htmlparser.CarRentalParser;
 import org.openqa.selenium.chrome.ChromeDriver;
-import webcrawling.AvisCanadaCrawl;
-import webcrawling.BudgetCanadaCrawl;
-import webcrawling.CarRentalWebCrawl;
-import webcrawling.orbitzCrawl;
+import webcrawling.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -627,6 +624,7 @@ public class Entry {
 
             } while (!inputValidator.isValidTime(return_Time));
             orbitzCrawl.WebCrawlOrbitz(pickup_Date_orbit,return_Date_orbit,duration,pickup_Location,pickup_Time,return_Time);
+            ZoomRentalCrawl.WebCrawlZoomRentals(pickup_Date,return_Date,duration,pickup_Location,pickup_Time,return_Time);
             try {
               //  AvisCanadaCrawl.resolve_Time(pickup_Time, return_Time);
                // BudgetCanadaCrawl.resolve_Time(pickup_Time, return_Time);
