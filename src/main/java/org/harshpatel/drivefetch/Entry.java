@@ -536,6 +536,7 @@ public class Entry {
             int duration = orbitzCrawl.calculateDurationISO(pickup_Date_orbit,return_Date_orbit);
 
             CarRentalWebCrawl.WebCrawlCarRentals(pickup_Date_orbit,return_Date_orbit,duration,pickup_Location);
+            CaascoTravelCrawl.WebCrawlCaascoTravel(pickup_Date,return_Date,duration,pickup_Location);
             //orbitzCrawl.WebCrawlOrbitz(pickup_Date_orbit,return_Date_orbit,duration,pickup_Location);
 
            // AvisCanadaCrawl.resolve_Date(pickup_Date, return_Date);
