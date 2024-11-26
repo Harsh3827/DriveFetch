@@ -108,7 +108,11 @@ public class ZoomRentalCrawl {
                 WebElement secondRow = carDetailsDiv.findElements(By.cssSelector("div.row")).get(1);
                 List<WebElement> carSpecs = secondRow.findElements(By.cssSelector("div.col-md-6"));
 
-                String carModel = carTypeElement.getText().split("\\(")[2].replace(" or similar)", "");
+                String[] carModelExtract = carTypeElement.getText().split("\\(");
+                String carModel = "";
+                if(carModelExtract.length > 2) {
+                    carModel = carModelExtract[2].replace(" or similar", "").replace(" or Similar", "").replace(")", "");
+                }
 
                 // Number of passengers capacity
                 String noPersons = carSpecs.get(0).getText().trim();
@@ -136,7 +140,9 @@ public class ZoomRentalCrawl {
 
             // Convert list to JSON and save to file
             ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.writeValue(new File("CarRentalsData.json"), carRentals);
+            objectMapper.writeValue(new File("ZoomRentalData.json"), carRentals);
+
+            closeDriver(driver);
 
         } catch (Exception e) {
             throw new RuntimeException("Error has occurred during the web crawl", e);
