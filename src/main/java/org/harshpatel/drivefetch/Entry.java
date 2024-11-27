@@ -116,8 +116,10 @@ public class Entry {
         List<CarInfo> listOfCars = new ArrayList<>();
 
         // Read data from individual JSON files and add to the list
-        readCrawledFile(listOfCars, "CarRentalsData.json");
+        readCrawledFile(listOfCars, "Web_Crawl_CaascoTravelData.json");
         readCrawledFile(listOfCars, "Web_Crawl_Orbitz.json");
+        readCrawledFile(listOfCars, "Web_Crawl_CarrentalData.json");
+        readCrawledFile(listOfCars, "ZoomRentalData.json");
        // readCrawledFile(listOfCars, "JsonData/CarRentalsIsData.json");
 
         // Save the combined data to All.json

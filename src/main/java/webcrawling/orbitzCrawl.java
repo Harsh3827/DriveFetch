@@ -49,12 +49,14 @@ public class orbitzCrawl {
 
         driver.get(url);
         driver.manage().window().fullscreen();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        WebElement submitButton = wait.until(ExpectedConditions.elementToBeClickable(By.name("submit-btn")));
-        submitButton.click(); // Perform the click action
+       // WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+       // WebElement submitButton = wait.until(ExpectedConditions.elementToBeClickable(By.name("submit-btn")));
+      //  submitButton.click(); // Perform the click action
 
         try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
             List<WebElement> offerCards = waitForClassElementsVisible(wait, driver, "offer-card-desktop");
+
 
             // Create list to hold CarInfo objects
             List<CarInfo> carInfoList = new ArrayList<>();

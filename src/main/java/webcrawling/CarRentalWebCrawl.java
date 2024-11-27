@@ -73,7 +73,7 @@ public class  CarRentalWebCrawl {
 
             // Convert list to JSON and save to file
             ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.writeValue(new File("CarRentalsData.json"), carRentals);
+            objectMapper.writeValue(new File("Web_Crawl_CarrentalData.json"), carRentals);
 
         } catch (Exception e) {
             throw new RuntimeException("Error has occurred during the web crawl", e);
