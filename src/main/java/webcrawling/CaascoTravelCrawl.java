@@ -77,7 +77,7 @@ public class CaascoTravelCrawl {
 
             // Convert list to JSON and save to file
             ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.writeValue(new File("Web_Crawl_CaascoTravelData.json"), caascoData);
+            objectMapper.writeValue(new File("CarRentalsData.json"), caascoData);
 
             // Close the chrome driver
 //            closeDriver(driver);
