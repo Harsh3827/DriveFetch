@@ -120,6 +120,8 @@ public class Entry {
         readCrawledFile(listOfCars, "Web_Crawl_Orbitz.json");
         readCrawledFile(listOfCars, "Web_Crawl_CarrentalData.json");
         readCrawledFile(listOfCars, "ZoomRentalData.json");
+        readCrawledFile(listOfCars, "CostcoTravelsData.json");
+
        // readCrawledFile(listOfCars, "JsonData/CarRentalsIsData.json");
 
         // Save the combined data to All.json
