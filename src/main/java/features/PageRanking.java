@@ -1,9 +1,6 @@
 package features;
 
-import webcrawling.AvisCanadaCrawl;
-import webcrawling.BudgetCanadaCrawl;
-import webcrawling.CarRentalWebCrawl;
-import webcrawling.orbitzCrawl;
+import webcrawling.*;
 
 import java.util.*;
 
@@ -71,14 +68,21 @@ public class PageRanking {
 
 
             String web_site = entryy.getKey();
-            if (entryy.getKey().contains("avis")){
-                web_site = AvisCanadaCrawl.avis_Url;
-            } else if (entryy.getKey().contains("orbitz")) {
-                web_site = orbitzCrawl.avis_Url;
+            if (entryy.getKey().contains("orbitz")){
+                web_site = orbitzCrawl.orbitz_url;
             } else if (entryy.getKey().contains("carrental")) {
                 web_site = CarRentalWebCrawl.car_rental_Url;
+            } else if (entryy.getKey().contains("zoomcarrental")) {
+                web_site = ZoomRentalCrawl.car_rental_Url;
             }
-            System.out.println(countt+". "+web_site);
+            else if (entryy.getKey().contains("costcotravel")) {
+                web_site = CostcoTravelCrawl.car_rental_Url;
+            }
+            else if (entryy.getKey().contains("casscotravle")) {
+                web_site = CaascoTravelCrawl.car_rental_Url;
+            }
+
+                System.out.println(countt+". "+web_site);
             countt++;
         }
     }

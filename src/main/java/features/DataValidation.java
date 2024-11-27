@@ -203,7 +203,7 @@ public class DataValidation {
         try 
         {
 			SpellChecking.initialize_Dictionary("C:\\acc labs\\webscrapercarrental\\data\\dictionart.txt");
-			 WordCompletion.initializeDictionary("C:\\acc labs\\webscrapercarrental\\data\\dictionart.txt");
+			 WordCompletion.initializeFromTextFile("C:\\acc labs\\webscrapercarrental\\data\\dictionart.txt");
 			 check = SpellChecking.check_Spelling(city_Name);
 			 //System.out.println(check);
 		} catch (IOException e) 

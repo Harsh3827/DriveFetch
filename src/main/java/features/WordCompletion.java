@@ -12,221 +12,136 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
-// TrieNode class data structure
-// helper class for trie
-// it contains an array of siz 128
+// Helper class for Trie Node
+class TrieNode {
+    TrieNode[] children;  // Array to hold child nodes for ASCII characters
+    boolean isWordEnd;    // Flag to indicate if this is the end of a word
 
-class TrieNodehelper 
-{
-    TrieNodehelper[] child;
-    boolean wordcompleted;
-
-    public TrieNodehelper() {
-        // Initialize an array for using ASCII characters
-    	// and make boolean as false
-        this.child = new TrieNodehelper[128];
-        this.wordcompleted = false;
+    public TrieNode() {
+        children = new TrieNode[128]; // Supports ASCII characters
+        isWordEnd = false;
     }
 }
 
-// Trie class to perform trie methods
-// main class or entry point of this file
-class Triemain 
-{
-    public TrieNodehelper root;
+// Main Trie class with functionality
+class Trie {
+    private final TrieNode root;
 
-    // Constructor  calling
-    // intializing helper class
-    public Triemain() {
-        this.root = new TrieNodehelper();
+    public Trie() {
+        this.root = new TrieNode();
     }
 
-    // insert a word into the Triemaing
-    public void insertNode(String wordgiven) {
-        TrieNodehelper nodd = root;
-        for (char chh : wordgiven.toCharArray()) {
-            int indexx = chh;
-            if (nodd.child[indexx] == null) {
-                nodd.child[indexx] = new TrieNodehelper();
+    // Insert a word into the Trie
+    public void insert(String word) {
+        TrieNode node = root;
+        for (char ch : word.toCharArray()) {
+            int index = ch;
+            if (node.children[index] == null) {
+                node.children[index] = new TrieNode();
             }
-            nodd = nodd.child[indexx];
+            node = node.children[index];
         }
-        nodd.wordcompleted = true;
+        node.isWordEnd = true;
     }
 
-    //  word suggestions for a given prefix 
-    public List<String> getSuggestions(String prefixx) {
-        TrieNodehelper nodd = findNode(prefixx);
-        System.out.println(nodd);
-        List<String> suggestionss = new ArrayList<>();
-        if (nodd != null) {
-            getAllWords(nodd, prefixx, suggestionss);
+    // Retrieve suggestions for a given prefix
+    public List<String> getSuggestions(String prefix) {
+        TrieNode node = findNode(prefix);
+        List<String> suggestions = new ArrayList<>();
+
+        if (node != null) {
+            getAllWords(node, prefix, suggestions);
         }
 
-        // Sort based on (edit distance)
-        suggestionss.sort(Comparator.comparingInt(suggest -> calculateEditDistance(prefixx, suggest)));
-
-
-        return suggestionss;
+        // Sort suggestions by Levenshtein distance
+        suggestions.sort(Comparator.comparingInt(suggestion -> calculateEditDistance(prefix, suggestion)));
+        return suggestions;
     }
 
-    // help mtd  to find the node related  to a given prefix
-    private TrieNodehelper findNode(String prefixx) {
-        TrieNodehelper nodx = root;
-        for (char ch : prefixx.toCharArray()) {
-            int indexx = ch;
-            if (nodx.child[indexx] == null) {
+    // Find the node corresponding to the given prefix
+    private TrieNode findNode(String prefix) {
+        TrieNode node = root;
+        for (char ch : prefix.toCharArray()) {
+            int index = ch;
+            if (node.children[index] == null) {
                 return null;
             }
-            nodx = nodx.child[indexx];
+            node = node.children[index];
         }
-        return nodx;
+        return node;
     }
 
-    // Helper mtd to retrieve all words
-    private void getAllWords(TrieNodehelper nodee, String currentPrefixx, List<String> suggestionss) {
-        if (nodee.wordcompleted) {
-            String suggestionWithoutOrSimilar = removeOrSimilar(currentPrefixx);
-            suggestionss.add(suggestionWithoutOrSimilar);
+    // Helper to collect all words from a given node
+    private void getAllWords(TrieNode node, String currentPrefix, List<String> suggestions) {
+        if (node.isWordEnd) {
+            suggestions.add(currentPrefix);
         }
-
-        for (int ik = 0; ik < nodee.child.length; ik++) {
-            if (nodee.child[ik] != null) {
-                char ch = (char) ik;
-                getAllWords(nodee.child[ik], currentPrefixx + ch, suggestionss);
+        for (int i = 0; i < node.children.length; i++) {
+            if (node.children[i] != null) {
+                char ch = (char) i;
+                getAllWords(node.children[i], currentPrefix + ch, suggestions);
             }
         }
     }
 
-    // method 
-    private String removeOrSimilar(String suggestionn) {
-        // Assuming "or similar" end of the suggestion
-        return suggestionn.replace(" or similar", "");
-    }
+    // Calculate Levenshtein distance between two words
+    private int calculateEditDistance(String word1, String word2) {
+        int[][] dp = new int[word1.length() + 1][word2.length() + 1];
 
-    // mtd to find edit distance between two words
-    private int calculateEditDistance(String wordfirst, String wordsecond) {
-        int[][] dp = new int[wordfirst.length() + 1][wordsecond.length() + 1];
-
-        for (int i = 0; i <= wordfirst.length(); i++) {
-            for (int j = 0; j <= wordsecond.length(); j++) {
+        for (int i = 0; i <= word1.length(); i++) {
+            for (int j = 0; j <= word2.length(); j++) {
                 if (i == 0) {
                     dp[i][j] = j;
                 } else if (j == 0) {
                     dp[i][j] = i;
                 } else {
-                    dp[i][j] = min(dp[i - 1][j - 1] + costOfSubstitution(wordfirst.charAt(i - 1), wordsecond.charAt(j - 1)),
-                            dp[i - 1][j] + 1,
-                            dp[i][j - 1] + 1);
+                    dp[i][j] = Math.min(
+                            Math.min(dp[i - 1][j] + 1, dp[i][j - 1] + 1),
+                            dp[i - 1][j - 1] + (word1.charAt(i - 1) == word2.charAt(j - 1) ? 0 : 1)
+                    );
                 }
             }
         }
-
-        return dp[wordfirst.length()][wordsecond.length()];
+        return dp[word1.length()][word2.length()];
     }
-
-    // mtd cost of substituting one character with another
-    private int costOfSubstitution(char aa, char bd) {
-        return aa == bd ? 0 : 1;
-    }
-
-    // find the minimum of a set of numbers
-    private int min(int... num) {
-        return Arrays.stream(num).min().orElse(Integer.MAX_VALUE);
-    }
-    
-
-    public void helper() {
-        suggesthelper(root, "");
-    }
-  
-   static  ArrayList<String> aa=new ArrayList<String>();
-    private void suggesthelper(TrieNodehelper nodee, String preefix)
-    {
-        if (nodee.wordcompleted) {
-          
-            aa.add(preefix);
-        }
-        for (char chh = 0; chh < 128; chh++) {
-            if (nodee.child[chh] != null) {
-                suggesthelper(nodee.child[chh], preefix + chh);
-            }
-        }
-    }
-    public   List<String> suggest(String inputstring)
-    {
-    	
-        helper();
-       
-        TrieNodehelper nodee = root;
-        List<String> suggestionss = new ArrayList<>();
-        for(int ii=0;ii<aa.size();ii++)
-        {
-           int n= calculateEditDistance(inputstring,aa.get(ii));
-          
-            if(n==2|| n==1)
-            	  suggestionss.add(aa.get(ii));
-        // Collect suggestions using Levenshtein distance
-       
-        }
-        return suggestionss;
-    }
-
-   
-    
 }
 
-// WordCompletion class to provide word completion
-public class WordCompletion 
-{
-    
-    public static Triemain trie;
+// WordCompletion class to handle dictionary initialization and suggestions
+public class WordCompletion {
+    private static Trie trie;
 
-    
-
-    //  initialize the Trie with  a JSON file
-    public static void initialize_Dictionary_From_JsonFile(String filename)
-    {
-        trie = new Triemain();
+    // Initialize dictionary from a JSON file
+    public static void initialize_Dictionary_From_JsonFile(String filename) {
+        trie = new Trie();
 
         try {
-            // Read the JSON file
-            ObjectMapper object_Mapper = new ObjectMapper();
-            ArrayNode jsonArray = (ArrayNode) object_Mapper.readTree(new File(filename));
-            for (int ii = 0; ii < jsonArray.size(); ii++) {
-                trie.insertNode(jsonArray.get(ii).get("name").asText().toLowerCase());
+            ObjectMapper objectMapper = new ObjectMapper();
+            ArrayNode jsonArray = (ArrayNode) objectMapper.readTree(new File(filename));
+            for (int i = 0; i < jsonArray.size(); i++) {
+                trie.insert(jsonArray.get(i).get("name").asText().toLowerCase());
             }
         } catch (IOException e) {
-           
             e.printStackTrace();
         }
     }
-    // intial from filepath
-    
-    public static void initializeDictionary(String filePathstring) throws IOException 
-    {
-    	trie = new Triemain();
-		File file = new File(filePathstring);
-		BufferedReader read = new BufferedReader(new FileReader(file));
-		String linee;
-		
-		while ((linee = read.readLine()) != null) {
-			// Split the line into words using non-word characters as delimiters
-			for (String wordd : linee.split("\\W+")) {
-				if (!wordd.isEmpty()) {
-					// Insert the lowercase version of the word into the trie
-					trie.insertNode(wordd.toLowerCase());
-				}
-			}
-		}
-		read.close();
-	}
 
-    // Method to get suggestions
-    public static List<String> get_Suggestions(String prefixx) 
-    
-    {
-        return trie.suggest(prefixx);
+    // Initialize dictionary from a text file
+    public static void initializeFromTextFile(String filePath) throws IOException {
+        trie = new Trie();
+        BufferedReader reader = new BufferedReader(new FileReader(new File(filePath)));
+        String line;
+        while ((line = reader.readLine()) != null) {
+            for (String word : line.split("\\W+")) {
+                if (!word.isEmpty()) {
+                    trie.insert(word.toLowerCase());
+                }
+            }
+        }
+        reader.close();
     }
 
+    // Get suggestions for a given prefix
+    public static List<String> get_Suggestions(String prefix) {
+        return trie.getSuggestions(prefix);
+    }
 }

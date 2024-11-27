@@ -163,25 +163,28 @@ public class inputValidator {
     }
 
     // Method to validate city name
+// Method to validate city name
     public static boolean isValidCityName(String cityName) {
         boolean isValid = CITY_NAME_PATTERN.matcher(cityName).matches();
         if (isValid) {
             try {
                 SpellChecking.initialize_Dictionary("D:\\Project\\DriveFetch\\data\\dictionaryCheck.txt");
-                WordCompletion.initializeDictionary("D:\\Project\\DriveFetch\\data\\dictionaryCheck.txt");
+                WordCompletion.initializeFromTextFile("D:\\Project\\DriveFetch\\data\\dictionaryCheck.txt");
                 isValid = SpellChecking.check_Spelling(cityName);
 
                 if (!isValid) {
-                    System.out.println("Suggestions: ");
+                    System.out.print("Did you mean ");
                     List<String> suggestions = WordCompletion.get_Suggestions(cityName.toLowerCase());
                     Set<String> uniqueSuggestions = new HashSet<>(suggestions);
 
                     if (!uniqueSuggestions.isEmpty()) {
-                        Iterator<String> iterator = uniqueSuggestions.iterator();
-                        while (iterator.hasNext()) {
-                            System.out.println(iterator.next());
-                        }
-                        System.out.println("Please select one from the suggestions.");
+                        // Build the result string
+                        String result = String.join(" / ", uniqueSuggestions);
+
+                        // Print in bold
+                        System.out.print("\u001B[1m" + result + "\u001B[0m");
+                        System.out.println("?\n");
+
                     } else {
                         System.out.println("No suggestions found, please type a new word.");
                     }
@@ -194,6 +197,7 @@ public class inputValidator {
         }
         return isValid;
     }
+
 
     // Method to validate user yes/no response
     public static boolean isValidYesNoResponse(String input) {

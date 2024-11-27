@@ -1,36 +1,220 @@
-london
-windsor
-toronto
-vancouver
-montreal
-ottawa
+banff
+brooks
 calgary
 edmonton
-moncton
-north bay
-halifax
-hamilton
-quebec city
-winnipeg
-kitchener
-timmins
+fort mcmurray
+grande prairie
+jasper
+lake louise
+lethbridge
+medicine hat
+red deer
+saint albert
+barkerville
+burnaby
+campbell river
+chilliwack
 courtenay
-los angeles
-denver
-ontario
-allentown
-atlanta
-oakland
+cranbrook
+dawson creek
+delta
+esquimalt
+fort saint james
+fort saint john
+hope
+kamloops
+kelowna
+kimberley
+kitimat
+langley
+nanaimo
+nelson
+new westminster
+north vancouver
+oak bay
+penticton
+powell river
+prince george
+prince rupert
+quesnel
+revelstoke
+rossland
+trail
+vancouver
+vernon
+victoria
+west vancouver
+white rock
+brandon
+churchill
+dauphin
+kildonan
+saint boniface
+swan river
+thompson
+winnipeg
+york factory
+bathurst
+caraquet
+dalhousie
+fredericton
+miramichi
+moncton
+saint john
+argentia
+bonavista
+channel-port aux basques
+corner brook
+ferryland
+gander
+grand falls–windsor
+happy valley–goose bay
+harbour grace
+labrador city
+placentia
+saint anthony
+st. john’s
+wabana
+fort smith
+hay river
+inuvik
+tuktoyaktuk
+yellowknife
+baddeck
+digby
+glace bay
+halifax
+liverpool
+louisbourg
+lunenburg
+pictou
+port hawkesbury
+springhill
+sydney
+yarmouth
+iqaluit
+bancroft
+barrie
+belleville
+brampton
+brantford
+brockville
+burlington
+cambridge
+chatham
+chatham-kent
+cornwall
+elliot lake
+etobicoke
+fort erie
+fort frances
+gananoque
+guelph
+hamilton
+iroquois falls
+kapuskasing
+kawartha lakes
+kenora
+kingston
+kirkland lake
+kitchener
+laurentian hills
+london
+midland
+mississauga
+moose factory
+moosonee
+niagara falls
+niagara-on-the-lake
+north bay
+north york
+oakville
+orillia
+oshawa
+ottawa
+parry sound
+perth
+peterborough
+picton
+port colborne
+saint catharines
+saint thomas
+sarnia-clearwater
+sault sainte marie
+scarborough
+simcoe
+stratford
+sudbury
+temiskaming shores
+thorold
+thunder bay
+timmins
+toronto
+trenton
 waterloo
-chicago
-las vegas
-orlando
-san francisco
-boston
-houston
-detroit
-philadelphia
-san diego
-austin
-nashville
-washington
+welland
+west nipissing
+windsor
+woodstock
+york
+borden
+cavendish
+charlottetown
+souris
+summerside
+asbestos
+baie-comeau
+beloeil
+cap-de-la-madeleine
+chambly
+charlesbourg
+châteauguay
+chibougamau
+côte-saint-luc
+dorval
+gaspé
+gatineau
+granby
+havre-saint-pierre
+hull
+jonquière
+kuujjuaq
+la salle
+la tuque
+lachine
+laval
+lévis
+longueuil
+magog
+matane
+montreal
+montréal-nord
+percé
+port-cartier
+quebec
+rimouski
+rouyn-noranda
+saguenay
+saint-eustache
+saint-hubert
+sainte-anne-de-beaupré
+sainte-foy
+sainte-thérèse
+sept-îles
+sherbrooke
+sorel-tracy
+trois-rivières
+val-d’or
+waskaganish
+batoche
+cumberland house
+estevan
+flin flon
+moose jaw
+prince albert
+regina
+saskatoon
+uranium city
+dawson
+watson lake
+whitehorse

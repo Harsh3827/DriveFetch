@@ -24,7 +24,7 @@ import java.util.List;
 
 public class orbitzCrawl {
 
-    public static String avis_Url = "https://www.orbitz.com/";
+    public static String orbitz_url = "https://www.orbitz.com/";
     public static void WebCrawlOrbitz(String startDate, String endDate, int duration, String location, String time1, String time2) throws UnsupportedEncodingException {
         // Set up Chrome options and driver
         ChromeOptions chrome_Options = new ChromeOptions();
@@ -92,6 +92,9 @@ public class orbitzCrawl {
 
             // Serialize the list of CarInfo objects to JSON
             mapper.writerWithDefaultPrettyPrinter().writeValue(new File("Web_Crawl_Orbitz.json"), carInfoList);
+
+            String content = driver.getPageSource();
+            WebCrawler.createF_ile(orbitz_url, content, "orbitz", "OrbitzFiles/");
 
         } catch (Exception e) {
             throw new RuntimeException("Error occurred during the web crawl", e);
