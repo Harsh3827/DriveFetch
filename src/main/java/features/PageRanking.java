@@ -1,8 +1,19 @@
 package features;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import webcrawling.*;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.*;
+
+class JSONReader {
+    public static List<Map<String, Object>> readJSON(String filePath) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.readValue(new File(filePath), new TypeReference<List<Map<String, Object>>>() {});
+    }
+}
 
 public class PageRanking {
     private Map<String, Integer> page_Scores;
@@ -39,69 +50,68 @@ public class PageRanking {
         return ranked_Pages;
     }
 
+    public void calculate_Page_Rank_FromJSON(List<Map<String, Object>> jsonData, String keyword) {
+        for (Map<String, Object> car : jsonData) {
+            String name = car.get("name").toString();
+            String link = car.get("link").toString();
 
-
-    public static void show_Ranking(String key_word){
-        B_Tree b_Tree = InvertedIndexing.index_Documents_InFolder(new String[]{"AvisFiles/","BudgetFiles/","CarRentalFiles/"});
-
-        Map<String, Integer> document_Frequencies = b_Tree.searchh(key_word);
-
-        if (!document_Frequencies.containsKey("avis_deals.html")){
-            document_Frequencies.put("avis_deals.html",0);
-        }if (!document_Frequencies.containsKey("budget_deals.html")){
-            document_Frequencies.put("budget_deals.html",0);
-        }if (!document_Frequencies.containsKey("orbitz_deals.html")){
-            document_Frequencies.put("orbitz_deals.html",0);
+            // If the car name contains the keyword, add to scores
+            if (name.toLowerCase().contains(keyword.toLowerCase())) {
+                page_Scores.put(link, page_Scores.getOrDefault(link, 0) + 1);
+            }
         }
 
-        // Create a PageRank object
-        PageRanking page_Rank = new PageRanking();
+        // Populate the priority queue
+        priority_Queue.addAll(page_Scores.entrySet());
+    }
 
-        // Calculate PageRank based on the document frequencies
-        page_Rank.calculate_Page_Rank(document_Frequencies);
+    public static void show_Ranking(String keyword) {
+        try {
+            // Read JSON data from the file
+            String filePath = "all.json"; // Path to the JSON file
+            List<Map<String, Object>> jsonData = JSONReader.readJSON(filePath);
 
-        System.out.println("Ranking of website for the selected Car Model:\n");
-        // Get and display ranked pages
-        List<Map.Entry<String, Integer>> ranked_Pages = page_Rank.get_Ranked_Pages();
-        int countt = 1;
-        for (Map.Entry<String, Integer> entryy : ranked_Pages) {
+            // Create a PageRanking object
+            PageRanking pageRanking = new PageRanking();
 
+            // Calculate PageRank based on the JSON data and the provided keyword
+            pageRanking.calculate_Page_Rank_FromJSON(jsonData, keyword);
 
-            String web_site = entryy.getKey();
-            if (entryy.getKey().contains("orbitz")){
-                web_site = orbitzCrawl.orbitz_url;
-            } else if (entryy.getKey().contains("carrental")) {
-                web_site = CarRentalWebCrawl.car_rental_Url;
-            } else if (entryy.getKey().contains("zoomcarrental")) {
-                web_site = ZoomRentalCrawl.car_rental_Url;
+            // Display the ranked pages
+            System.out.println("Ranking of websites for the selected car model:\n");
+            List<Map.Entry<String, Integer>> rankedPages = pageRanking.get_Ranked_Pages();
+            int count = 1;
+            for (Map.Entry<String, Integer> entry : rankedPages) {
+                System.out.println(count + ". " + entry.getKey() + " (Score: " + entry.getValue() + ")");
+                count++;
             }
-            else if (entryy.getKey().contains("costcotravel")) {
-                web_site = CostcoTravelCrawl.car_rental_Url;
-            }
-            else if (entryy.getKey().contains("casscotravle")) {
-                web_site = CaascoTravelCrawl.car_rental_Url;
-            }
-
-                System.out.println(countt+". "+web_site);
-            countt++;
+        } catch (IOException e) {
+            System.out.println("Error reading JSON file: " + e.getMessage());
         }
     }
+
     public static void main(String[] args) {
-        B_Tree bTree = InvertedIndexing.index_Documents_InFolder(new String[]{"AvisFiles","BudgetFiles","OrbitzFiles"});
+        try {
+            // Read JSON data
+            String filePath = "all.json"; // Path to the JSON file
+            List<Map<String, Object>> jsonData = JSONReader.readJSON(filePath);
 
-        Map<String, Integer> documentFrequencies = bTree.searchh("kia");
+            // Keyword for ranking
+            String keyword = "Kia"; // Example keyword
 
-        // Create a PageRank object
-        PageRanking pageRank = new PageRanking();
+            // Create PageRanking object
+            PageRanking pageRanking = new PageRanking();
 
-        // Calculate PageRank based on the document frequencies
-        pageRank.calculate_Page_Rank(documentFrequencies);
+            // Rank pages based on the keyword
+            pageRanking.calculate_Page_Rank_FromJSON(jsonData, keyword);
 
-        // Get and display ranked pages
-        List<Map.Entry<String, Integer>> rankedPages = pageRank.get_Ranked_Pages();
-        for (Map.Entry<String, Integer> entry : rankedPages) {
-            System.out.println(entry.getKey() + ": " + entry.getValue());
+            // Get and display ranked pages
+            List<Map.Entry<String, Integer>> rankedPages = pageRanking.get_Ranked_Pages();
+            for (Map.Entry<String, Integer> entry : rankedPages) {
+                System.out.println(entry.getKey() + ": " + entry.getValue());
+            }
+        } catch (IOException e) {
+            System.out.println("Error reading JSON file: " + e.getMessage());
         }
     }
-
 }

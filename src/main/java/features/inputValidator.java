@@ -2,6 +2,7 @@ package features;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.regex.Pattern;
 
@@ -13,7 +14,7 @@ public class inputValidator {
     static Pattern VEHICLE_NAME_PATTERN = Pattern.compile("^[a-zA-Z\\s]+$");
     private static Pattern RANGE_PATTERN = Pattern.compile("^\\d+-\\d+$");
     static Pattern DATE_PATTERN = Pattern.compile("^\\d{2}/\\d{2}/\\d{4}$");
-    static Pattern TIME_PATTERN = Pattern.compile("^(0?[1-9]|1[0-2])(:[0-5][0-9])?(\\s?[AP][M])?$");
+    static Pattern TIME_PATTERN = Pattern.compile("^(0[1-9]|1[0-2]):[0-5][0-9] (AM|PM)$");
     static Pattern CITY_NAME_PATTERN = Pattern.compile("^[a-zA-Z\\s]+$");
     static Pattern INTEGER_PATTERN = Pattern.compile("-?\\d+");
 
@@ -90,7 +91,7 @@ public class inputValidator {
             return false;
         }
 
-        if ((day == 31 && (month == 4 || month == 6 || month == 9 || month == 11)) || day > 30) {
+        if (day == 31 && (month == 4 || month == 6 || month == 9 || month == 11)) {
             return false;
         }
 
@@ -111,12 +112,12 @@ public class inputValidator {
         }
 
         if (!isValidDate(inputDate)) {
-            System.out.println("The date provided is not valid.");
+            System.out.println("The date provided is not valid. Please enter valid date.");
             return false;
         }
 
         if (isPastDate(inputDate)) {
-            System.out.println("The date is from the past.");
+            System.out.println("The date is from the past. Please enter valid date.");
             return false;
         }
 
@@ -137,16 +138,16 @@ public class inputValidator {
             return false;
         }
 
-        String[] pickupDateParts = pickupDate.split("/");
-        String[] returnDateParts = returnDate.split("/");
+        // Define the formatter for DD/MM/YYYY
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-        if (returnDateParts[1].compareTo(pickupDateParts[1]) < 0) {
-            System.out.println("Return month cannot be before pickup month.");
-            return false;
-        }
+        // Parse the dates
+        LocalDate pickupDateCompare = LocalDate.parse(pickupDate, formatter);
+        LocalDate returnDateCompare = LocalDate.parse(returnDate, formatter);
 
-        if (returnDateParts[1].equals(pickupDateParts[1]) && returnDateParts[0].compareTo(pickupDateParts[0]) < 0) {
-            System.out.println("Return date cannot be before pickup date in the same month.");
+        // Compare dates
+        if (returnDateCompare.isBefore(pickupDateCompare) || returnDateCompare.equals(pickupDateCompare)) {
+            System.out.println("Return date should be after pickup date.");
             return false;
         }
 
@@ -156,9 +157,9 @@ public class inputValidator {
     // Method to validate time
     public static boolean isValidTime(String time) {
         boolean isValid = TIME_PATTERN.matcher(time).matches();
-        if (!isValid) {
-            System.out.println("Invalid time format. Please use HH:MM format. Kindly try again.");
-        }
+//        if (!isValid) {
+//            System.out.println("Invalid time format. Please use HH:MM format. Kindly try again.");
+//        }
         return isValid;
     }
 

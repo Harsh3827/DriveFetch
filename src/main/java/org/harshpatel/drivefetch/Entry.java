@@ -196,6 +196,7 @@ public class Entry {
                     System.out.println("The available Car Companies:");
                     Set<String> car_List = CarInfo_List.stream()
                             .map(ele -> ele.getName().split(" ")[0])
+                            .filter(name -> name != null && !name.isEmpty())
                             .collect(Collectors.toSet());
 
                     System.out.println(car_List);
@@ -477,6 +478,8 @@ public class Entry {
 
     @SuppressWarnings("deprecation")
     private static void performCrawling() throws UnsupportedEncodingException {
+        Scanner scanner = new Scanner(System.in);
+
        //AvisCanadaCrawl.init_Driver();
         //System.out.println("avis");
         //BudgetCanadaCrawl.init_Driver();
@@ -484,7 +487,6 @@ public class Entry {
         //CarRentalWebCrawl.initDriver();
         System.out.println("carrental");
 
-        Scanner scanner = new Scanner(System.in);
         String response;
         do {
             String same_Location_Response;
@@ -520,7 +522,7 @@ public class Entry {
             do {
                 System.out.print("Enter pickup date (DD/MM/YYYY): ");
                 pickup_Date = scanner.nextLine();
-            } while (!inputValidator.isValidDate(pickup_Date));
+            } while (!inputValidator.validateDate(pickup_Date));
 
             String return_Date;
             do {
@@ -550,6 +552,11 @@ public class Entry {
             do {
                 System.out.print("Enter pickup time (HH:MM AM/PM): ");
                 pickup_Time = scanner.nextLine();
+
+                if(!inputValidator.isValidTime((pickup_Time))) {
+                    System.out.println("Invalid time format. Please use HH:MM format. Kindly try again.");
+                    continue;
+                }
 
                 String[] split_Time = pickup_Time.split(":");
                 int hourr = Integer.parseInt(split_Time[0]);
@@ -592,6 +599,11 @@ public class Entry {
             do {
                 System.out.print("Enter return time (HH:MM AM/PM): ");
                 return_Time = scanner.nextLine();
+
+                if(!inputValidator.isValidTime((return_Time))) {
+                    System.out.println("Invalid time format. Please use HH:MM format. Kindly try again.");
+                    continue;
+                }
 
                 String[] split_Time = return_Time.split(":");
                 int hourr = Integer.parseInt(split_Time[0]);
