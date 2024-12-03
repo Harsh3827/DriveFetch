@@ -1,19 +1,43 @@
 [ {
   "name" : "Nissan Versa",
+  "price" : 24.0,
+  "passengerCapacity" : 5,
+  "carGroup" : "Compact",
+  "transmissionType" : "Automatic",
+  "carCompany" : "Orbitz",
+  "link" : "https://www.orbitz.com/carsearch/details?date1=12%2F3%2F2024&date2=12%2F4%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvokQb_jkXogMhhb8Iy9DwtQCfpXedra327f3SV8tDX2i68QNkdbgT_JrXyfPpOrMeGE&dailyPriceShown=20.71&totalPriceShown=24.2&searchUrl=%2Fcarsearch%3Fdate1%3D12%252F3%252F2024%26date2%3D12%252F4%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3Dtoronto&isOffAirport=true&isTravelApiSearch=false&offerQualifiers=GreatDeal%2CGreatDeal&avgCatPR=52.81&period=daily&isCaliforniaUser=false"
+}, {
+  "name" : "Nissan Versa",
+  "price" : 24.0,
+  "passengerCapacity" : 5,
+  "carGroup" : "Compact",
+  "transmissionType" : "Automatic",
+  "carCompany" : "Orbitz",
+  "link" : "https://www.orbitz.com/carsearch/details?date1=12%2F3%2F2024&date2=12%2F4%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvonivr1EIQHw980OmROGX0jvAtAuFvNZ0Wg1ZFBfw5H11FzzVv1JnvOh8-Red9lNxvM&dailyPriceShown=20.71&totalPriceShown=24.2&searchUrl=%2Fcarsearch%3Fdate1%3D12%252F3%252F2024%26date2%3D12%252F4%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3Dtoronto&isOffAirport=true&isTravelApiSearch=false&offerQualifiers=GreatDeal%2CGreatDeal&avgCatPR=52.81&period=daily&isCaliforniaUser=false"
+}, {
+  "name" : "Chevrolet Spark",
+  "price" : 25.0,
+  "passengerCapacity" : 4,
+  "carGroup" : "Economy",
+  "transmissionType" : "Automatic",
+  "carCompany" : "Orbitz",
+  "link" : "https://www.orbitz.com/carsearch/details?date1=12%2F3%2F2024&date2=12%2F4%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvonivr1EIQHw980OmROGX0jvOKlndYxm9GtVzuSbudkWh1zzVv1JnvOh8-Red9lNxvM&dailyPriceShown=21.61&totalPriceShown=25.22&searchUrl=%2Fcarsearch%3Fdate1%3D12%252F3%252F2024%26date2%3D12%252F4%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3Dtoronto&isOffAirport=true&isTravelApiSearch=false&offerQualifiers=GreatDeal%2CGreatDeal&avgCatPR=47.09&period=daily&isCaliforniaUser=false"
+}, {
+  "name" : "Chevrolet Spark",
+  "price" : 25.0,
+  "passengerCapacity" : 4,
+  "carGroup" : "Economy",
+  "transmissionType" : "Automatic",
+  "carCompany" : "Orbitz",
+  "link" : "https://www.orbitz.com/carsearch/details?date1=12%2F3%2F2024&date2=12%2F4%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvokQb_jkXogMhhb8Iy9DwtQCZ7q4hLWW2bs07OHmJCPVB8QNkdbgT_JrXyfPpOrMeGE&dailyPriceShown=21.61&totalPriceShown=25.22&searchUrl=%2Fcarsearch%3Fdate1%3D12%252F3%252F2024%26date2%3D12%252F4%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3Dtoronto&isOffAirport=true&isTravelApiSearch=false&offerQualifiers=GreatDeal%2CGreatDeal&avgCatPR=47.09&period=daily&isCaliforniaUser=false"
+}, {
+  "name" : "Dodge Ram 1500",
   "price" : 27.0,
   "passengerCapacity" : 5,
-  "carGroup" : "Compact",
+  "carGroup" : "Standard Pickup Regular Cab",
   "transmissionType" : "Automatic",
   "carCompany" : "Orbitz",
-  "link" : "https://www.orbitz.com/carsearch/details?date1=11%2F27%2F2024&date2=11%2F28%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=Toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvokcm4zjL_COURTPqA7HGfzWQqdOVLTdqafdB6WFOR9_6sQNkdbgT_JrXyfPpOrMeGE&dailyPriceShown=22.99&totalPriceShown=26.78&searchUrl=%2Fcarsearch%3Fdate1%3D11%252F27%252F2024%26date2%3D11%252F28%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3DToronto&isOffAirport=true&isTravelApiSearch=false&offerQualifiers=GreatDeal%2CGreatDeal&avgCatPR=39.43&period=daily&isCaliforniaUser=false"
-}, {
-  "name" : "Nissan Versa",
-  "price" : 27.0,
-  "passengerCapacity" : 5,
-  "carGroup" : "Compact",
-  "transmissionType" : "Automatic",
-  "carCompany" : "Orbitz",
-  "link" : "https://www.orbitz.com/carsearch/details?date1=11%2F27%2F2024&date2=11%2F28%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=Toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvokMODpZnjP-Mj6JYz5Mhv8j6AQVupYkQlnW9fcHfCU8_1zzVv1JnvOh8-Red9lNxvM&dailyPriceShown=22.99&totalPriceShown=26.78&searchUrl=%2Fcarsearch%3Fdate1%3D11%252F27%252F2024%26date2%3D11%252F28%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3DToronto&isOffAirport=true&isTravelApiSearch=false&offerQualifiers=GreatDeal%2CGreatDeal&avgCatPR=39.43&period=daily&isCaliforniaUser=false"
+  "link" : "https://www.orbitz.com/carsearch/details?date1=12%2F3%2F2024&date2=12%2F4%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvokqnslhulZYZexpProrbXl_Ir708bgcO9mHqY2rfaHLPa1u4pDRyp6w6x6_5kgFQqs&dailyPriceShown=22.98&totalPriceShown=26.77&searchUrl=%2Fcarsearch%3Fdate1%3D12%252F3%252F2024%26date2%3D12%252F4%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3Dtoronto&isOffAirport=true&isTravelApiSearch=false&offerQualifiers=GreatDeal%2CGreatDeal&avgCatPR=71.03&period=daily&isCaliforniaUser=false"
 }, {
   "name" : "Chevrolet Spark",
   "price" : 28.0,
@@ -21,23 +45,7 @@
   "carGroup" : "Economy",
   "transmissionType" : "Automatic",
   "carCompany" : "Orbitz",
-  "link" : "https://www.orbitz.com/carsearch/details?date1=11%2F27%2F2024&date2=11%2F28%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=Toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvokMODpZnjP-Mj6JYz5Mhv8jbpwKxuDCHtAsGYdkv4b5sVzzVv1JnvOh8-Red9lNxvM&dailyPriceShown=23.83&totalPriceShown=27.73&searchUrl=%2Fcarsearch%3Fdate1%3D11%252F27%252F2024%26date2%3D11%252F28%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3DToronto&isOffAirport=true&isTravelApiSearch=false&offerQualifiers=GreatDeal%2CGreatDeal&avgCatPR=38.59&period=daily&isCaliforniaUser=false"
-}, {
-  "name" : "Chevrolet Spark",
-  "price" : 28.0,
-  "passengerCapacity" : 4,
-  "carGroup" : "Economy",
-  "transmissionType" : "Automatic",
-  "carCompany" : "Orbitz",
-  "link" : "https://www.orbitz.com/carsearch/details?date1=11%2F27%2F2024&date2=11%2F28%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=Toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvokcm4zjL_COURTPqA7HGfzW5X0pxL882afrticqJgR_AsQNkdbgT_JrXyfPpOrMeGE&dailyPriceShown=23.83&totalPriceShown=27.73&searchUrl=%2Fcarsearch%3Fdate1%3D11%252F27%252F2024%26date2%3D11%252F28%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3DToronto&isOffAirport=true&isTravelApiSearch=false&offerQualifiers=GreatDeal%2CGreatDeal&avgCatPR=38.59&period=daily&isCaliforniaUser=false"
-}, {
-  "name" : "Chevrolet Spark",
-  "price" : 28.0,
-  "passengerCapacity" : 4,
-  "carGroup" : "Economy",
-  "transmissionType" : "Automatic",
-  "carCompany" : "Orbitz",
-  "link" : "https://www.orbitz.com/carsearch/details?date1=11%2F27%2F2024&date2=11%2F28%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=Toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvokMODpZnjP-Mj6JYz5Mhv8j-VUYnoqkVk-CTD27ungjod9CvNX8AWOtD9BOwlHrJAs&dailyPriceShown=20.64&totalPriceShown=27.74&searchUrl=%2Fcarsearch%3Fdate1%3D11%252F27%252F2024%26date2%3D11%252F28%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3DToronto&isOffAirport=true&isTravelApiSearch=false&offerQualifiers=GreatDeal%2CGreatDeal&avgCatPR=38.59&period=daily&isCaliforniaUser=false"
+  "link" : "https://www.orbitz.com/carsearch/details?date1=12%2F3%2F2024&date2=12%2F4%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvonivr1EIQHw980OmROGX0jvnLWTiuDqthO27zCMHJgJm99CvNX8AWOtD9BOwlHrJAs&dailyPriceShown=21.15&totalPriceShown=28.41&searchUrl=%2Fcarsearch%3Fdate1%3D12%252F3%252F2024%26date2%3D12%252F4%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3Dtoronto&isOffAirport=true&isTravelApiSearch=false&avgCatPR=47.09&period=daily&isCaliforniaUser=false"
 }, {
   "name" : "Nissan Versa",
   "price" : 28.0,
@@ -45,7 +53,7 @@
   "carGroup" : "Compact",
   "transmissionType" : "Automatic",
   "carCompany" : "Orbitz",
-  "link" : "https://www.orbitz.com/carsearch/details?date1=11%2F27%2F2024&date2=11%2F28%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=Toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvokcm4zjL_COURTPqA7HGfzWP_V7SlrIuDuhUFXHCoAQ-Gz_yNsgY_h2sOn7HAJ7wjU&dailyPriceShown=20.64&totalPriceShown=27.74&searchUrl=%2Fcarsearch%3Fdate1%3D11%252F27%252F2024%26date2%3D11%252F28%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3DToronto&isOffAirport=true&isTravelApiSearch=false&avgCatPR=39.43&period=daily&isCaliforniaUser=false"
+  "link" : "https://www.orbitz.com/carsearch/details?date1=12%2F3%2F2024&date2=12%2F4%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvokQb_jkXogMhhb8Iy9DwtQC5zY_xhoo2wH0-iVjvtvO0Gz_yNsgY_h2sOn7HAJ7wjU&dailyPriceShown=21.15&totalPriceShown=28.41&searchUrl=%2Fcarsearch%3Fdate1%3D12%252F3%252F2024%26date2%3D12%252F4%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3Dtoronto&isOffAirport=true&isTravelApiSearch=false&avgCatPR=52.81&period=daily&isCaliforniaUser=false"
 }, {
   "name" : "Nissan Versa",
   "price" : 28.0,
@@ -53,7 +61,7 @@
   "carGroup" : "Compact",
   "transmissionType" : "Automatic",
   "carCompany" : "Orbitz",
-  "link" : "https://www.orbitz.com/carsearch/details?date1=11%2F27%2F2024&date2=11%2F28%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=Toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvokMODpZnjP-Mj6JYz5Mhv8jD6dYFf2fQ4f5PEbfV2mpYt9CvNX8AWOtD9BOwlHrJAs&dailyPriceShown=20.64&totalPriceShown=27.74&searchUrl=%2Fcarsearch%3Fdate1%3D11%252F27%252F2024%26date2%3D11%252F28%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3DToronto&isOffAirport=true&isTravelApiSearch=false&avgCatPR=39.43&period=daily&isCaliforniaUser=false"
+  "link" : "https://www.orbitz.com/carsearch/details?date1=12%2F3%2F2024&date2=12%2F4%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvonivr1EIQHw980OmROGX0jvVC28P2Zy4TQA0C8o6uP8N99CvNX8AWOtD9BOwlHrJAs&dailyPriceShown=21.15&totalPriceShown=28.41&searchUrl=%2Fcarsearch%3Fdate1%3D12%252F3%252F2024%26date2%3D12%252F4%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3Dtoronto&isOffAirport=true&isTravelApiSearch=false&avgCatPR=52.81&period=daily&isCaliforniaUser=false"
 }, {
   "name" : "Chevrolet Spark",
   "price" : 28.0,
@@ -61,7 +69,15 @@
   "carGroup" : "Economy",
   "transmissionType" : "Automatic",
   "carCompany" : "Orbitz",
-  "link" : "https://www.orbitz.com/carsearch/details?date1=11%2F27%2F2024&date2=11%2F28%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=Toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvokcm4zjL_COURTPqA7HGfzWjsCNxk08otdvagDqMxob92z_yNsgY_h2sOn7HAJ7wjU&dailyPriceShown=20.64&totalPriceShown=27.74&searchUrl=%2Fcarsearch%3Fdate1%3D11%252F27%252F2024%26date2%3D11%252F28%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3DToronto&isOffAirport=true&isTravelApiSearch=false&offerQualifiers=GreatDeal%2CGreatDeal&avgCatPR=38.59&period=daily&isCaliforniaUser=false"
+  "link" : "https://www.orbitz.com/carsearch/details?date1=12%2F3%2F2024&date2=12%2F4%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvokQb_jkXogMhhb8Iy9DwtQCYeOZIhZyBw0d-ARK8oe5Pmz_yNsgY_h2sOn7HAJ7wjU&dailyPriceShown=21.15&totalPriceShown=28.41&searchUrl=%2Fcarsearch%3Fdate1%3D12%252F3%252F2024%26date2%3D12%252F4%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3Dtoronto&isOffAirport=true&isTravelApiSearch=false&avgCatPR=47.09&period=daily&isCaliforniaUser=false"
+}, {
+  "name" : "Nissan Versa",
+  "price" : 28.0,
+  "passengerCapacity" : 5,
+  "carGroup" : "Compact",
+  "transmissionType" : "Automatic",
+  "carCompany" : "Orbitz",
+  "link" : "https://www.orbitz.com/carsearch/details?date1=12%2F3%2F2024&date2=12%2F4%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvolvfR7Qo8tHVnhobmKOKPhtfpXedra327f3SV8tDX2i63aujj9TAjRn347kR1ynFQs&dailyPriceShown=24.45&totalPriceShown=28.43&searchUrl=%2Fcarsearch%3Fdate1%3D12%252F3%252F2024%26date2%3D12%252F4%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3Dtoronto&isOffAirport=true&isTravelApiSearch=false&avgCatPR=52.81&period=daily&isCaliforniaUser=false"
 }, {
   "name" : "Kia Rio",
   "price" : 28.0,
@@ -69,7 +85,7 @@
   "carGroup" : "Compact",
   "transmissionType" : "Automatic",
   "carCompany" : "Orbitz",
-  "link" : "https://www.orbitz.com/carsearch/details?date1=11%2F27%2F2024&date2=11%2F28%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=Toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvolnjMpxlyiEuEM_asiFDrZcYEwj221L5RaReF8CLFBwHIWsXLzNVsv6wSUnPnvNeSk&dailyPriceShown=24.19&totalPriceShown=28.14&searchUrl=%2Fcarsearch%3Fdate1%3D11%252F27%252F2024%26date2%3D11%252F28%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3DToronto&isOffAirport=true&isTravelApiSearch=false&avgCatPR=39.43&period=daily&isCaliforniaUser=false"
+  "link" : "https://www.orbitz.com/carsearch/details?date1=12%2F3%2F2024&date2=12%2F4%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvokqnslhulZYZexpProrbXl_lulMalnnn76TekM8Ej91hYWsXLzNVsv6wSUnPnvNeSk&dailyPriceShown=24.45&totalPriceShown=28.43&searchUrl=%2Fcarsearch%3Fdate1%3D12%252F3%252F2024%26date2%3D12%252F4%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3Dtoronto&isOffAirport=true&isTravelApiSearch=false&avgCatPR=52.81&period=daily&isCaliforniaUser=false"
 }, {
   "name" : "Kia Rio",
   "price" : 28.0,
@@ -77,55 +93,47 @@
   "carGroup" : "Compact",
   "transmissionType" : "Automatic",
   "carCompany" : "Orbitz",
-  "link" : "https://www.orbitz.com/carsearch/details?date1=11%2F27%2F2024&date2=11%2F28%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=Toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvolnjMpxlyiEuEM_asiFDrZcENrg7fZKWGk1RtlDhiPvpq1u4pDRyp6w6x6_5kgFQqs&dailyPriceShown=24.19&totalPriceShown=28.14&searchUrl=%2Fcarsearch%3Fdate1%3D11%252F27%252F2024%26date2%3D11%252F28%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3DToronto&isOffAirport=true&isTravelApiSearch=false&avgCatPR=39.43&period=daily&isCaliforniaUser=false"
-}, {
-  "name" : "Chevrolet Spark",
-  "price" : 28.0,
-  "passengerCapacity" : 4,
-  "carGroup" : "Economy",
-  "transmissionType" : "Automatic",
-  "carCompany" : "Orbitz",
-  "link" : "https://www.orbitz.com/carsearch/details?date1=11%2F27%2F2024&date2=11%2F28%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=Toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvolnjMpxlyiEuEM_asiFDrZcyG4DmZiqCIINvqvd57npMoWsXLzNVsv6wSUnPnvNeSk&dailyPriceShown=24.35&totalPriceShown=28.33&searchUrl=%2Fcarsearch%3Fdate1%3D11%252F27%252F2024%26date2%3D11%252F28%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3DToronto&isOffAirport=true&isTravelApiSearch=false&offerQualifiers=GreatDeal%2CGreatDeal&avgCatPR=38.59&period=daily&isCaliforniaUser=false"
-}, {
-  "name" : "Chevrolet Spark",
-  "price" : 28.0,
-  "passengerCapacity" : 4,
-  "carGroup" : "Economy",
-  "transmissionType" : "Automatic",
-  "carCompany" : "Orbitz",
-  "link" : "https://www.orbitz.com/carsearch/details?date1=11%2F27%2F2024&date2=11%2F28%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=Toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvolnjMpxlyiEuEM_asiFDrZcaO8yy8K5GwhClJE8H3Dsoa1u4pDRyp6w6x6_5kgFQqs&dailyPriceShown=24.35&totalPriceShown=28.33&searchUrl=%2Fcarsearch%3Fdate1%3D11%252F27%252F2024%26date2%3D11%252F28%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3DToronto&isOffAirport=true&isTravelApiSearch=false&offerQualifiers=GreatDeal%2CGreatDeal&avgCatPR=38.59&period=daily&isCaliforniaUser=false"
-}, {
-  "name" : "Toyota Corolla",
-  "price" : 28.0,
-  "passengerCapacity" : 5,
-  "carGroup" : "Midsize",
-  "transmissionType" : "Automatic",
-  "carCompany" : "Orbitz",
-  "link" : "https://www.orbitz.com/carsearch/details?date1=11%2F27%2F2024&date2=11%2F28%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=Toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvokMODpZnjP-Mj6JYz5Mhv8jdNf9QUw6m-8yzkDrBxDv11zzVv1JnvOh8-Red9lNxvM&dailyPriceShown=24.48&totalPriceShown=28.46&searchUrl=%2Fcarsearch%3Fdate1%3D11%252F27%252F2024%26date2%3D11%252F28%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3DToronto&isOffAirport=true&isTravelApiSearch=false&offerQualifiers=GreatDeal%2CGreatDeal&avgCatPR=43.89&period=daily&isCaliforniaUser=false"
-}, {
-  "name" : "Toyota Corolla",
-  "price" : 28.0,
-  "passengerCapacity" : 5,
-  "carGroup" : "Midsize",
-  "transmissionType" : "Automatic",
-  "carCompany" : "Orbitz",
-  "link" : "https://www.orbitz.com/carsearch/details?date1=11%2F27%2F2024&date2=11%2F28%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=Toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvokcm4zjL_COURTPqA7HGfzWtqr2ScqlAIx9Tt-eH-8_acQNkdbgT_JrXyfPpOrMeGE&dailyPriceShown=24.48&totalPriceShown=28.46&searchUrl=%2Fcarsearch%3Fdate1%3D11%252F27%252F2024%26date2%3D11%252F28%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3DToronto&isOffAirport=true&isTravelApiSearch=false&offerQualifiers=GreatDeal%2CGreatDeal&avgCatPR=43.89&period=daily&isCaliforniaUser=false"
+  "link" : "https://www.orbitz.com/carsearch/details?date1=12%2F3%2F2024&date2=12%2F4%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvokqnslhulZYZexpProrbXl_f69YaFT60pJzOtXRCB3Dhq1u4pDRyp6w6x6_5kgFQqs&dailyPriceShown=24.45&totalPriceShown=28.43&searchUrl=%2Fcarsearch%3Fdate1%3D12%252F3%252F2024%26date2%3D12%252F4%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3Dtoronto&isOffAirport=true&isTravelApiSearch=false&avgCatPR=52.81&period=daily&isCaliforniaUser=false"
 }, {
   "name" : "Nissan Versa",
-  "price" : 30.0,
+  "price" : 28.0,
   "passengerCapacity" : 5,
   "carGroup" : "Compact",
   "transmissionType" : "Automatic",
   "carCompany" : "Orbitz",
-  "link" : "https://www.orbitz.com/carsearch/details?date1=11%2F27%2F2024&date2=11%2F28%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=Toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvolavvhZ-7SWqthqzLpcbIdXfYKhgGhb3AmOwJtply0zh1V0G2wSIDwoSff8BiLnQHw&dailyPriceShown=24.9&totalPriceShown=29.54&searchUrl=%2Fcarsearch%3Fdate1%3D11%252F27%252F2024%26date2%3D11%252F28%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3DToronto&isOffAirport=true&isTravelApiSearch=false&avgCatPR=39.43&period=daily&isCaliforniaUser=false"
+  "link" : "https://www.orbitz.com/carsearch/details?date1=12%2F3%2F2024&date2=12%2F4%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvomIAIHkdI9aqj8r_mPJjBEiAtAuFvNZ0Wg1ZFBfw5H11Haujj9TAjRn347kR1ynFQs&dailyPriceShown=24.45&totalPriceShown=28.43&searchUrl=%2Fcarsearch%3Fdate1%3D12%252F3%252F2024%26date2%3D12%252F4%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3Dtoronto&isOffAirport=true&isTravelApiSearch=false&avgCatPR=52.81&period=daily&isCaliforniaUser=false"
 }, {
-  "name" : "Toyota Corolla",
+  "name" : "Chevrolet Spark",
   "price" : 30.0,
-  "passengerCapacity" : 5,
-  "carGroup" : "Midsize",
+  "passengerCapacity" : 4,
+  "carGroup" : "Economy",
   "transmissionType" : "Automatic",
   "carCompany" : "Orbitz",
-  "link" : "https://www.orbitz.com/carsearch/details?date1=11%2F27%2F2024&date2=11%2F28%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=Toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvolavvhZ-7SWqthqzLpcbIdXKX-gkzv-PaBcmInbYR7l-1V0G2wSIDwoSff8BiLnQHw&dailyPriceShown=24.9&totalPriceShown=29.54&searchUrl=%2Fcarsearch%3Fdate1%3D11%252F27%252F2024%26date2%3D11%252F28%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3DToronto&isOffAirport=true&isTravelApiSearch=false&avgCatPR=43.89&period=daily&isCaliforniaUser=false"
+  "link" : "https://www.orbitz.com/carsearch/details?date1=12%2F3%2F2024&date2=12%2F4%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvokqnslhulZYZexpProrbXl_NNcyG_XJ-BihF2QwceOud4WsXLzNVsv6wSUnPnvNeSk&dailyPriceShown=25.54&totalPriceShown=29.67&searchUrl=%2Fcarsearch%3Fdate1%3D12%252F3%252F2024%26date2%3D12%252F4%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3Dtoronto&isOffAirport=true&isTravelApiSearch=false&avgCatPR=47.09&period=daily&isCaliforniaUser=false"
+}, {
+  "name" : "Chevrolet Spark",
+  "price" : 30.0,
+  "passengerCapacity" : 4,
+  "carGroup" : "Economy",
+  "transmissionType" : "Automatic",
+  "carCompany" : "Orbitz",
+  "link" : "https://www.orbitz.com/carsearch/details?date1=12%2F3%2F2024&date2=12%2F4%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvomIAIHkdI9aqj8r_mPJjBEiOKlndYxm9GtVzuSbudkWh3aujj9TAjRn347kR1ynFQs&dailyPriceShown=25.54&totalPriceShown=29.67&searchUrl=%2Fcarsearch%3Fdate1%3D12%252F3%252F2024%26date2%3D12%252F4%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3Dtoronto&isOffAirport=true&isTravelApiSearch=false&avgCatPR=47.09&period=daily&isCaliforniaUser=false"
+}, {
+  "name" : "Chevrolet Spark",
+  "price" : 30.0,
+  "passengerCapacity" : 4,
+  "carGroup" : "Economy",
+  "transmissionType" : "Automatic",
+  "carCompany" : "Orbitz",
+  "link" : "https://www.orbitz.com/carsearch/details?date1=12%2F3%2F2024&date2=12%2F4%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvolvfR7Qo8tHVnhobmKOKPhtZ7q4hLWW2bs07OHmJCPVB3aujj9TAjRn347kR1ynFQs&dailyPriceShown=25.54&totalPriceShown=29.67&searchUrl=%2Fcarsearch%3Fdate1%3D12%252F3%252F2024%26date2%3D12%252F4%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3Dtoronto&isOffAirport=true&isTravelApiSearch=false&avgCatPR=47.09&period=daily&isCaliforniaUser=false"
+}, {
+  "name" : "Chevrolet Spark",
+  "price" : 30.0,
+  "passengerCapacity" : 4,
+  "carGroup" : "Economy",
+  "transmissionType" : "Automatic",
+  "carCompany" : "Orbitz",
+  "link" : "https://www.orbitz.com/carsearch/details?date1=12%2F3%2F2024&date2=12%2F4%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvokqnslhulZYZexpProrbXl_-dQeiEGorMLhJRF50E1V461u4pDRyp6w6x6_5kgFQqs&dailyPriceShown=25.54&totalPriceShown=29.67&searchUrl=%2Fcarsearch%3Fdate1%3D12%252F3%252F2024%26date2%3D12%252F4%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3Dtoronto&isOffAirport=true&isTravelApiSearch=false&avgCatPR=47.09&period=daily&isCaliforniaUser=false"
 }, {
   "name" : "Compact",
   "price" : 30.0,
@@ -133,53 +141,45 @@
   "carGroup" : "Special",
   "transmissionType" : "Automatic",
   "carCompany" : "Orbitz",
-  "link" : "https://www.orbitz.com/carsearch/details?date1=11%2F27%2F2024&date2=11%2F28%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=Toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvokcm4zjL_COURTPqA7HGfzWj-pSRASfkch0LzJHUjtpnMQNkdbgT_JrXyfPpOrMeGE&dailyPriceShown=25.51&totalPriceShown=29.63&searchUrl=%2Fcarsearch%3Fdate1%3D11%252F27%252F2024%26date2%3D11%252F28%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3DToronto&isOffAirport=true&isTravelApiSearch=false&offerQualifiers=GreatDeal%2CGreatDeal&avgCatPR=36.52&period=daily&isCaliforniaUser=false"
-}, {
-  "name" : "Toyota Corolla",
-  "price" : 30.0,
-  "passengerCapacity" : 5,
-  "carGroup" : "Midsize",
-  "transmissionType" : "Automatic",
-  "carCompany" : "Orbitz",
-  "link" : "https://www.orbitz.com/carsearch/details?date1=11%2F27%2F2024&date2=11%2F28%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=Toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvolnjMpxlyiEuEM_asiFDrZc3Ok6C5w8XcYjSWZb-BNovYWsXLzNVsv6wSUnPnvNeSk&dailyPriceShown=25.54&totalPriceShown=29.67&searchUrl=%2Fcarsearch%3Fdate1%3D11%252F27%252F2024%26date2%3D11%252F28%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3DToronto&isOffAirport=true&isTravelApiSearch=false&avgCatPR=43.89&period=daily&isCaliforniaUser=false"
-}, {
-  "name" : "Toyota Corolla",
-  "price" : 30.0,
-  "passengerCapacity" : 5,
-  "carGroup" : "Midsize",
-  "transmissionType" : "Automatic",
-  "carCompany" : "Orbitz",
-  "link" : "https://www.orbitz.com/carsearch/details?date1=11%2F27%2F2024&date2=11%2F28%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=Toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvolnjMpxlyiEuEM_asiFDrZcRtqad6TjUeLfJStDkQKhlK1u4pDRyp6w6x6_5kgFQqs&dailyPriceShown=25.54&totalPriceShown=29.67&searchUrl=%2Fcarsearch%3Fdate1%3D11%252F27%252F2024%26date2%3D11%252F28%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3DToronto&isOffAirport=true&isTravelApiSearch=false&avgCatPR=43.89&period=daily&isCaliforniaUser=false"
+  "link" : "https://www.orbitz.com/carsearch/details?date1=12%2F3%2F2024&date2=12%2F4%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvokQb_jkXogMhhb8Iy9DwtQCMp38xwzfrtD5esst6tjXXMQNkdbgT_JrXyfPpOrMeGE&dailyPriceShown=25.99&totalPriceShown=30.17&searchUrl=%2Fcarsearch%3Fdate1%3D12%252F3%252F2024%26date2%3D12%252F4%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3Dtoronto&isOffAirport=true&isTravelApiSearch=false&offerQualifiers=GreatDeal%2CGreatDeal&avgCatPR=49.04&period=daily&isCaliforniaUser=false"
 }, {
   "name" : "Volkswagen Jetta",
-  "price" : 30.0,
+  "price" : 31.0,
   "passengerCapacity" : 5,
   "carGroup" : "Standard",
   "transmissionType" : "Automatic",
   "carCompany" : "Orbitz",
-  "link" : "https://www.orbitz.com/carsearch/details?date1=11%2F27%2F2024&date2=11%2F28%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=Toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvoncUTcb8E5fgPOof3APYEOp_xM4ItvJ6Wcf_y3W5Y7nwNKt83stck4pTeChhseeO6c&dailyPriceShown=24.9&totalPriceShown=29.71&searchUrl=%2Fcarsearch%3Fdate1%3D11%252F27%252F2024%26date2%3D11%252F28%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3DToronto&isOffAirport=true&isTravelApiSearch=false&offerQualifiers=GreatDeal%2CGreatDeal&avgCatPR=53.54&period=daily&isCaliforniaUser=false"
+  "link" : "https://www.orbitz.com/carsearch/details?date1=12%2F3%2F2024&date2=12%2F4%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvonivr1EIQHw980OmROGX0jvZiWF9CYKEamSiBTo19QpblzzVv1JnvOh8-Red9lNxvM&dailyPriceShown=26.45&totalPriceShown=30.69&searchUrl=%2Fcarsearch%3Fdate1%3D12%252F3%252F2024%26date2%3D12%252F4%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3Dtoronto&isOffAirport=true&isTravelApiSearch=false&avgCatPR=71.03&period=daily&isCaliforniaUser=false"
 }, {
-  "name" : "Nissan Versa",
-  "price" : 30.0,
+  "name" : "Volkswagen Jetta",
+  "price" : 31.0,
   "passengerCapacity" : 5,
-  "carGroup" : "Compact",
+  "carGroup" : "Standard",
   "transmissionType" : "Automatic",
   "carCompany" : "Orbitz",
-  "link" : "https://www.orbitz.com/carsearch/details?date1=11%2F27%2F2024&date2=11%2F28%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=Toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvok-i9eoOatjC_lTIVAONWasxm9OVkSoh2QahaB2ySHE_fLtqNCufiAw8ZADDsEqQls&dailyPriceShown=26.55&totalPriceShown=30.41&searchUrl=%2Fcarsearch%3Fdate1%3D11%252F27%252F2024%26date2%3D11%252F28%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3DToronto&isOffAirport=true&isTravelApiSearch=false&avgCatPR=39.43&period=daily&isCaliforniaUser=false"
+  "link" : "https://www.orbitz.com/carsearch/details?date1=12%2F3%2F2024&date2=12%2F4%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvokQb_jkXogMhhb8Iy9DwtQCqWtf9AJkrdNBAoc8LGDCKsQNkdbgT_JrXyfPpOrMeGE&dailyPriceShown=26.45&totalPriceShown=30.69&searchUrl=%2Fcarsearch%3Fdate1%3D12%252F3%252F2024%26date2%3D12%252F4%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3Dtoronto&isOffAirport=true&isTravelApiSearch=false&avgCatPR=71.03&period=daily&isCaliforniaUser=false"
 }, {
-  "name" : "Nissan Versa",
-  "price" : 30.0,
+  "name" : "Toyota Corolla",
+  "price" : 31.0,
   "passengerCapacity" : 5,
-  "carGroup" : "Compact",
+  "carGroup" : "Standard",
   "transmissionType" : "Automatic",
   "carCompany" : "Orbitz",
-  "link" : "https://www.orbitz.com/carsearch/details?date1=11%2F27%2F2024&date2=11%2F28%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=Toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvok-i9eoOatjC_lTIVAONWasnL7kso7cGdiOUr-wWE36-AMD48g4Thq06qsQCmgl2qo&dailyPriceShown=26.55&totalPriceShown=30.41&searchUrl=%2Fcarsearch%3Fdate1%3D11%252F27%252F2024%26date2%3D11%252F28%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3DToronto&isOffAirport=true&isTravelApiSearch=false&avgCatPR=39.43&period=daily&isCaliforniaUser=false"
+  "link" : "https://www.orbitz.com/carsearch/details?date1=12%2F3%2F2024&date2=12%2F4%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvokaM2id4oDNdqfJ-2_nDSpbCFlEQfGb9EN1QEnqmCLLMK1rz7TXmXA4l21pgSiWtsM&dailyPriceShown=26.64&totalPriceShown=31.07&searchUrl=%2Fcarsearch%3Fdate1%3D12%252F3%252F2024%26date2%3D12%252F4%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3Dtoronto&isOffAirport=true&isTravelApiSearch=false&avgCatPR=71.03&period=daily&isCaliforniaUser=false"
 }, {
-  "name" : "Nissan Versa",
-  "price" : 30.0,
+  "name" : "Toyota Camry",
+  "price" : 32.0,
   "passengerCapacity" : 5,
-  "carGroup" : "Compact",
+  "carGroup" : "Fullsize",
   "transmissionType" : "Automatic",
   "carCompany" : "Orbitz",
-  "link" : "https://www.orbitz.com/carsearch/details?date1=11%2F27%2F2024&date2=11%2F28%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=Toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvok-i9eoOatjC_lTIVAONWasO_vv_BnYSNOGeKMWM3eshAPbLS_xSCd-MnCeDA4qAKI&dailyPriceShown=26.55&totalPriceShown=30.41&searchUrl=%2Fcarsearch%3Fdate1%3D11%252F27%252F2024%26date2%3D11%252F28%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3DToronto&isOffAirport=true&isTravelApiSearch=false&avgCatPR=39.43&period=daily&isCaliforniaUser=false"
+  "link" : "https://www.orbitz.com/carsearch/details?date1=12%2F3%2F2024&date2=12%2F4%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvokaM2id4oDNdqfJ-2_nDSpb5KXOM6GihXmHd-Td6R3BZa1rz7TXmXA4l21pgSiWtsM&dailyPriceShown=27.02&totalPriceShown=31.51&searchUrl=%2Fcarsearch%3Fdate1%3D12%252F3%252F2024%26date2%3D12%252F4%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3Dtoronto&isOffAirport=true&isTravelApiSearch=false&offerQualifiers=GreatDeal%2CGreatDeal&avgCatPR=67.24&period=daily&isCaliforniaUser=false"
+}, {
+  "name" : "Compact",
+  "price" : 32.0,
+  "passengerCapacity" : 5,
+  "carGroup" : "Special",
+  "transmissionType" : "Automatic",
+  "carCompany" : "Orbitz",
+  "link" : "https://www.orbitz.com/carsearch/details?date1=12%2F3%2F2024&date2=12%2F4%2F2024&time1=1000AM&time2=1000AM&dpln=178314&locn=toronto&piid=AQ35IQC1RHrWvLA7Lplfpru7avjCnI7in9MF41jMKsvolvfR7Qo8tHVnhobmKOKPhtMp38xwzfrtD5esst6tjXXHaujj9TAjRn347kR1ynFQs&dailyPriceShown=27.39&totalPriceShown=31.76&searchUrl=%2Fcarsearch%3Fdate1%3D12%252F3%252F2024%26date2%3D12%252F4%252F2024%26time1%3D1000AM%26time2%3D1000AM%26dpln%3D178314%26locn%3Dtoronto&isOffAirport=true&isTravelApiSearch=false&avgCatPR=49.04&period=daily&isCaliforniaUser=false"
 } ]

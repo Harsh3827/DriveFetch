@@ -68,7 +68,7 @@ public class PageRanking {
     public static void show_Ranking(String keyword) {
         try {
             // Read JSON data from the file
-            String filePath = "all.json"; // Path to the JSON file
+            String filePath = "JsonData\\All.json"; // Path to the JSON file
             List<Map<String, Object>> jsonData = JSONReader.readJSON(filePath);
 
             // Create a PageRanking object
@@ -93,7 +93,7 @@ public class PageRanking {
     public static void main(String[] args) {
         try {
             // Read JSON data
-            String filePath = "all.json"; // Path to the JSON file
+            String filePath = "JsonData\\All.json"; // Path to the JSON file
             List<Map<String, Object>> jsonData = JSONReader.readJSON(filePath);
 
             // Keyword for ranking

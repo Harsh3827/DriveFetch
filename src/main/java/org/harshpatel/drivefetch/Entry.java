@@ -180,7 +180,7 @@ public class Entry {
             while (!validInput) {
                 try {
                     do {
-                        System.out.println("\nSelect option to filter the deals:\n1. Display deals by price (LOW - HIGH)\n2. Sort by Car Name\n3. Car Price\n4. Sort by Transmission Type\n5. Sort by Passenger Capacity (HIGH - LOW)\n6. Sort by Luggage Capacity (HIGH - LOW)\n7. Show Car Count Analysis\n8. Exit");
+                        System.out.println("\nSelect option to filter the deals:\n1. Display deals by price (LOW - HIGH)\n2. Sort by Car Name\n3. Car Price\n4. Sort by Transmission Type\n5. Sort by Passenger Capacity (HIGH - LOW)\n6. Show Car Count Analysis\n7. Exit");
                         option = scanner.next();
                     } while (!inputValidator.isValidInteger(Integer.parseInt(option)));
                     validInput = true;
@@ -286,21 +286,21 @@ public class Entry {
                     display_Car_List(process_Filter);
 
                     break;
-                case 6:
+               /* case 6:
                     int preferredLuggageCapacity;
                     do {
-                        System.out.println("Enter preferred luggage capacity: ");
+                      //  System.out.println("Enter preferred luggage capacity: ");
                         preferredLuggageCapacity = scanner.nextInt();
                     }
                     while (!inputValidator.isValidInteger(preferredLuggageCapacity));
                   //  process_Filter = filterBy_Luggage_Capacity(CarInfo_List, preferredLuggageCapacity);
                     display_Car_List(process_Filter);
-                    break;
-                case 7:
+                    break;*/
+                case 6:
                     fetch_Car_Analysis(CarInfo_List);
 
                     break;
-                case 8:
+                case 7:
                     refine_Selection = "no";
                     break;
                 default:

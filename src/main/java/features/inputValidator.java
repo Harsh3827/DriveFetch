@@ -169,26 +169,38 @@ public class inputValidator {
         boolean isValid = CITY_NAME_PATTERN.matcher(cityName).matches();
         if (isValid) {
             try {
+                // Initialize both SpellChecking and WordCompletion dictionaries
                 SpellChecking.initialize_Dictionary("D:\\Project\\DriveFetch\\data\\dictionaryCheck.txt");
                 WordCompletion.initializeFromTextFile("D:\\Project\\DriveFetch\\data\\dictionaryCheck.txt");
+
+                // Check if the city name is valid via SpellChecking
                 isValid = SpellChecking.check_Spelling(cityName);
 
                 if (!isValid) {
+                    // Attempt WordCompletion suggestions first
                     System.out.print("Did you mean ");
-                    List<String> suggestions = WordCompletion.get_Suggestions(cityName.toLowerCase());
-                    Set<String> uniqueSuggestions = new HashSet<>(suggestions);
+                    List<String> completionSuggestions = WordCompletion.get_Suggestions(cityName.toLowerCase());
+                    Set<String> uniqueSuggestions = new HashSet<>(completionSuggestions);
 
                     if (!uniqueSuggestions.isEmpty()) {
-                        // Build the result string
-                        String result = String.join(" / ", uniqueSuggestions);
+                        // Build the WordCompletion result string
+                        String completionResult = String.join(" / ", uniqueSuggestions);
 
                         // Print in bold
-                        System.out.print("\u001B[1m" + result + "\u001B[0m");
+                        System.out.print("\u001B[1m" + completionResult + "\u001B[0m");
                         System.out.println("?\n");
-
                     } else {
-                        System.out.println("No suggestions found, please type a new word.");
+                        // If no suggestions are found via WordCompletion, attempt SpellChecking suggestions
+                        List<String> spellSuggestions = SpellChecking.get_Suggestions(cityName.toLowerCase(), false); // Updated
+                        if (!spellSuggestions.isEmpty()) {
+                            String bestSuggestion = spellSuggestions.get(0); // Get the best suggestion
+                            System.out.println("" + bestSuggestion + "?");
+                        } else {
+                            // If no suggestions are found at all
+                            System.out.println("No suggestions found, please type a new word.");
+                        }
                     }
+
                 }
             } catch (Exception e) {
                 System.out.println("Unable to initialize dictionary data.");
@@ -198,7 +210,6 @@ public class inputValidator {
         }
         return isValid;
     }
-
 
     // Method to validate user yes/no response
     public static boolean isValidYesNoResponse(String input) {
