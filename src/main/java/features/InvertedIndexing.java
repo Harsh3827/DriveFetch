@@ -8,9 +8,10 @@ import java.io.IOException;
 import java.util.*;
 
 // Node of the Binary Tree
+// Node of the Binary Tree
 class BinaryTreeNode {
     String term;
-    Map<String, Integer> documentFrequency;
+    Map<String, List<String>> documentFrequency; // Maps document name to list of links
     BinaryTreeNode left;
     BinaryTreeNode right;
 
@@ -31,35 +32,39 @@ class BinaryTree {
     }
 
     // Insert a term into the binary tree
-    public void insert(String term, String document) {
-        root = insertRecursively(root, term, document);
+    public void insert(String term, String document, String link) {
+        root = insertRecursively(root, term, document, link);
     }
 
-    private BinaryTreeNode insertRecursively(BinaryTreeNode node, String term, String document) {
+    private BinaryTreeNode insertRecursively(BinaryTreeNode node, String term, String document, String link) {
         if (node == null) {
             BinaryTreeNode newNode = new BinaryTreeNode(term);
-            newNode.documentFrequency.put(document, 1);
+            newNode.documentFrequency.put(document, new ArrayList<>(Collections.singletonList(link)));
             return newNode;
         }
 
         if (term.compareTo(node.term) < 0) {
-            node.left = insertRecursively(node.left, term, document);
+            node.left = insertRecursively(node.left, term, document, link);
         } else if (term.compareTo(node.term) > 0) {
-            node.right = insertRecursively(node.right, term, document);
+            node.right = insertRecursively(node.right, term, document, link);
         } else {
-            // Term already exists, update frequency
-            node.documentFrequency.put(document, node.documentFrequency.getOrDefault(document, 0) + 1);
+            // Term already exists, update document frequency
+            List<String> links = node.documentFrequency.getOrDefault(document, new ArrayList<>());
+            if (!links.contains(link)) {
+                links.add(link);
+            }
+            node.documentFrequency.put(document, links);
         }
 
         return node;
     }
 
     // Search for a term and return its document frequency map
-    public Map<String, Integer> search(String term) {
+    public Map<String, List<String>> search(String term) {
         return searchRecursively(root, term);
     }
 
-    private Map<String, Integer> searchRecursively(BinaryTreeNode node, String term) {
+    private Map<String, List<String>> searchRecursively(BinaryTreeNode node, String term) {
         if (node == null) {
             return null;
         }
@@ -102,10 +107,11 @@ public class InvertedIndexing {
 
             for (Map<String, Object> entry : jsonData) {
                 String documentName = entry.get("name").toString(); // Assuming "name" as the document identifier
+                String documentLink = entry.get("link").toString();
                 String[] tokens = documentName.split("\\s+");
 
                 for (String token : tokens) {
-                    binaryTree.insert(token.toLowerCase(), documentName);
+                    binaryTree.insert(token.toLowerCase(), documentName, documentLink);
                 }
             }
         } catch (IOException e) {
@@ -120,7 +126,7 @@ public class InvertedIndexing {
 
         // Search example
         String searchTerm = "kia"; // Example term to search
-        Map<String, Integer> result = binaryTree.search(searchTerm);
+        Map<String, List<String>> result = binaryTree.search(searchTerm);
 
         if (result != null) {
             System.out.println("Search Results for '" + searchTerm + "': " + result);
@@ -133,3 +139,4 @@ public class InvertedIndexing {
         binaryTree.printTree();
     }
 }
+
