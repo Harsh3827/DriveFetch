@@ -11,14 +11,14 @@ import java.util.Map;
 
 //frequncy count class
 public class FrequencyCount {
- 
-	// main mtd
+
+    // main mtd
     public static void main(String[] args) {
-    	// path name
+        // path name
         String path_Of_File = "JsonData/All.json";
 
         try {
-        	// objectmapper
+            // objectmapper
             ObjectMapper object_Mapper = new ObjectMapper();
             // creating a new file
             File filee = new File(path_Of_File);
@@ -38,10 +38,10 @@ public class FrequencyCount {
             e.printStackTrace();
         }
     }
-  // get frequncy count mtd
+    // get frequncy count mtd
     public static Map<String, Integer> get_Frequency_Count(String file_Path) {
 
-    	// calling object mapper
+        // calling object mapper
         ObjectMapper object_Mapper = new ObjectMapper();
         // creating aa new filr
         File filee = new File(file_Path);

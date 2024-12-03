@@ -137,7 +137,7 @@ public class ZoomRentalCrawl {
                 CarInfo carRental = new CarInfo(carModel, priceNumber, passengerCapacity, carType, transmission, rentalCompany,link);
                 carRentals.add(carRental);
 
-                carRental = new CarInfo("Mazda1", 70.77, 10, "Intermediate SUV", "Automatic", "Costco","www.costcotravel.com");
+                carRental = new CarInfo("Mazda", 70.77, 10, "Intermediate SUV", "Automatic", "Costco","www.costcotravel.com");
                 carRentals.add(carRental);
             }
 
