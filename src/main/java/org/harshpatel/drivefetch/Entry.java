@@ -25,32 +25,51 @@ public class Entry {
 
     public static void main(String[] args) throws UnsupportedEncodingException {
         while (true) {
-            System.out.println("\n-------------------------------------------------");
-            System.out.println("       Welcome to the Drive Fetch Application");
+            // Clear screen (optional, depends on the terminal being used)
+            System.out.println("\n\n");
+
+            // Welcome Header
             System.out.println("-------------------------------------------------");
+            System.out.println("    Welcome to the Drive Fetch Application       ");
+            System.out.println("-------------------------------------------------");
+
+            // Menu Options with improved spacing and formatting
+            System.out.println("\nPlease choose an option:");
             System.out.println("1. Perform Crawling");
-            System.out.println("2. Perform Parsing");
+            System.out.println("2. Perform Filtering (Parsing)");
             System.out.println("3. Exit");
             System.out.println("-------------------------------------------------");
 
+            // Read user input
             int choice = scanner.nextInt();
 
+            // Handle different menu options
             switch (choice) {
                 case 1:
-                    performCrawling(); // Start web crawling for car rental sites
+                    // Perform Web Crawling
+                    System.out.println("\nStarting the crawling process...");
+                    performCrawling();  // Start web crawling for car rental sites
                     break;
                 case 2:
-                    List<CarInfo> carInfoList = getAllCarDetails();
-                    filter_Car_Deals(carInfoList);
+                    // Perform Filtering (Parsing)
+                    System.out.println("\nFetching car details and filtering deals...");
+                    List<CarInfo> carInfoList = getAllCarDetails(); // Get car details
+                    filter_Car_Deals(carInfoList);  // Filter car deals based on user input
                     break;
                 case 3:
-                    System.out.println("Exiting program. Goodbye!");
+                    // Exit the program
+                    System.out.println("\nExiting program. Goodbye!");
                     System.exit(0);
+                    break;
                 default:
-                    System.out.println("Invalid choice. Please select again.");
+                    // Handle invalid choices
+                    System.out.println("\nInvalid choice. Please select again.");
+                    break;
             }
         }
     }
+
+
 
 
     public static List<CarInfo> getAllCarDetails() {
@@ -96,8 +115,8 @@ public class Entry {
 
     private static void filter_Car_Deals(List<CarInfo> CarInfo_List) {
         System.out.println("");
-        System.out.println("*      PARSING CAR DEALS FILTER MENU      *");
-        System.out.println("");
+        System.out.println("\n*     CAR DEALS FILTER MENU      *");
+        System.out.println("-----------------------------------------");
 
         String refine_Selection;
         do {
@@ -117,7 +136,7 @@ public class Entry {
             while (!validInput) {
                 try {
                     do {
-                        System.out.println("\nSelect option to filter the deals:\n1. Display deals by price (LOW - HIGH)\n2. Sort by Car Name\n3. Car Price\n4. Sort by Transmission Type\n5. Sort by Passenger Capacity \n6. Show Car Count Analysis\n7. Exit");
+                        System.out.println("\nSelect an appropriate option to filter the deals:\n1. Display deals by price (LOW - HIGH)\n2. Filter by Car Name\n3. Filter by Car Price\n4. Filter by Transmission Type\n5. Sort by Passenger Capacity \n6. Show Car Count Analysis\n7. Exit");
                         option = scanner.next();
                     } while (!inputValidator.isValidInteger(Integer.parseInt(option)));
                     validInput = true;
@@ -146,7 +165,7 @@ public class Entry {
                     boolean check;
                     String preferred_Car_Name;
                     do {
-                        System.out.println("Enter your preferred Car Company from above given list: ");
+                        System.out.print("\nEnter your preferred Car Company from above list: ");
                         preferred_Car_Name = scanner.next().toLowerCase();
 
                         check = SpellChecking.check_Spelling(preferred_Car_Name);
@@ -160,7 +179,7 @@ public class Entry {
                     List<String> most_Searched_Cars = SearchFrequency.displayMostSearchedCars(car_List);
                     System.out.println();
                     if (!most_Searched_Cars.isEmpty()) {
-                        System.out.println("Most Searched Cars:");
+                        System.out.println("\n--- Most Searched Cars ---");
                         for (String car : most_Searched_Cars) {
                             System.out.println(car);
                         }
@@ -170,7 +189,7 @@ public class Entry {
 
                     String s;
                     do {
-                        System.out.println("Do you want to see Page Rank of websites for the given Car Model (Y/N): ");
+                        System.out.print("\nDo you want to see Page Rank of websites for the given Car Model (y/n): ");
                         s = scanner.next();
                     } while (!inputValidator.isValidYesNoResponse(s));
 
@@ -186,7 +205,7 @@ public class Entry {
                     String preferred_Price_Range;
 
                     do {
-                        System.out.println("Enter preferred price range type (50-200): ");
+                        System.out.print("\nEnter preferred price range (e.g., 50-200): ");
                         preferred_Price_Range = scanner.next().toLowerCase();
                     } while (!inputValidator.isValidRangeInput(preferred_Price_Range));
 
@@ -197,7 +216,7 @@ public class Entry {
 
                     String preferredTransmission;
                     do {
-                        System.out.println("Enter preferred transmission type (A or M): ");
+                        System.out.print("\nEnter preferred transmission type (A or M): ");
                         preferredTransmission = scanner.next().toUpperCase();
                     } while (!inputValidator.isValidTransmissionType(preferredTransmission));
 
