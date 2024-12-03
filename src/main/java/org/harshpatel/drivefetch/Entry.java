@@ -16,6 +16,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.*;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import static webcrawling.orbitzCrawl.convertToISOFormat;
@@ -194,12 +195,12 @@ public class Entry {
                     break;
                 case 2:
                     System.out.println("The available Car Companies:");
-                    Set<String> car_List = CarInfo_List.stream()
+                    List<String> car_List = CarInfo_List.stream()
                             .map(ele -> ele.getName().split(" ")[0])
                             .filter(name -> name != null && !name.isEmpty())
-                            .collect(Collectors.toSet());
+                            .collect(Collectors.toList());
 
-                    System.out.println(car_List);
+                    System.out.println(new HashSet<>(car_List));
 
                     try {
                         SpellChecking.initialize_Dictionary("JsonData/All.json");

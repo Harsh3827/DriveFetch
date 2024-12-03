@@ -33,33 +33,38 @@ public class CarRentalParser {
         List<CarInfo> car_Innfo_Llist = new ArrayList<>();
 
         try {
-       
+            // Take Orbitz.html
             File inpt = new File(filee_Ppath);
+
+            // Parse html content in UTF-8
             Document doct = Jsoup.parse(inpt, "UTF-8");
 
-        
+            // Select li elements with class "offer-card-desktop"
             Elements car_Eles = doct.select("li.offer-card-desktop");
 
             // for loop for all elements
             for (Element car_Element : car_Eles) {
 
-
+                // Exceptional handling to remove "or similar" word
                 String car_Name = car_Element.select("div.uitk-text.uitk-type-300.uitk-text-default-theme.uitk-spacing.uitk-spacing-margin-blockend-one").text().split(" or ")[0]
                         .trim();
+
+                // Do not consider special cases (might be booked)
                 if (car_Name.contains("Economy Special") || car_Name.contains("Special")) {
                     continue;
                 }
 //               // car price
                 double car_Price = Double.parseDouble(car_Element.select("span.total-price").first().text().replaceAll("[^\\d.]", ""));
-//                
+//
+                // Challenges (refine my data)
                 int passenger_Capacity = Integer.parseInt(fet(car_Element.select("span.uitk-spacing.text-attribute.uitk-spacing-padding-inlinestart-two.uitk-spacing-padding-inlineend-three").first().text()));
                 String car_Group = car_Element.select("h3.uitk-heading.uitk-heading-5.uitk-spacing.uitk-spacing-padding-inline-three.uitk-layout-grid-item").text();
 //           
                 String transmission_Type = car_Element.select("span.uitk-spacing.text-attribute.uitk-spacing-padding-inlinestart-two.uitk-spacing-padding-inlineend-three").text().split(" ")[1];
 
-               // give value
-                int large_Bag = new Random().nextInt(6) + 1;
-                int small_Bag = new Random().nextInt(6) + 1;
+//               // give value
+//                int large_Bag = new Random().nextInt(6) + 1;
+//                int small_Bag = new Random().nextInt(6) + 1;
 
 
           

@@ -113,16 +113,12 @@ public class CostcoTravelCrawl {
 //                    new String[]{pickupLocation, dropoffLocation, pickupDate, pickupTime, dropoffTime}
 //            );
 
-//            // Create car rental object
-//            CarInfo costcoData = new CarInfo(makeModel, price, Integer.parseInt(passengers), carClass, bags, rentalCompany,link);
-//            caascoData.add(carRental);
-
             // Assuming rental company is fixed for the example
             String rentalCompany = "CostcoTravel";
-
-            // Create car rental object
-            CarInfo carRental = new CarInfo("Test", 11.12, 10, "Mazda", "5", rentalCompany,"www.costcotravel.com");
-            costcoData.add(carRental);
+//
+//            // Create car rental object
+//            CarInfo carRental = new CarInfo("Test", 11.12, 10, "Mazda", "5", rentalCompany,"www.costcotravel.com");
+//            costcoData.add(carRental);
 
             // Convert list to JSON and save to file
             ObjectMapper objectMapper = new ObjectMapper();

@@ -8,11 +8,13 @@ public class SearchFrequency {
 
     // Increase the frequency count for a given car name
     public static void incrementSearchFrequency(String carName) {
+        carName = carName.toLowerCase();
         searchFrequencyMap.put(carName, searchFrequencyMap.getOrDefault(carName, 0) + 1);
     }
 
+
     // Update frequency based on the car list
-    public static void updateSearchFrequency(Set<String> carList) {
+    public static void updateSearchFrequency(List<String> carList) {
         for (String car : carList) {
             incrementSearchFrequency(car);
         }
@@ -26,7 +28,7 @@ public class SearchFrequency {
     }
 
     // Display the most searched cars with their frequencies and return the sorted list
-    public static List<String> displayMostSearchedCars(Set<String> carList) {
+    public static List<String> displayMostSearchedCars(List<String> carList) {
         // Update the frequency map with the provided car list
         updateSearchFrequency(carList);
 

@@ -44,6 +44,7 @@ public class CaascoTravelCrawl {
             WebElement FindButton = driver.findElement(By.id("searchButton"));
             FindButton.click();
 
+            // 2nd Page
             // Wait condition
             WebElement ViewByVehicle = wait.until(ExpectedConditions.elementToBeClickable(By.className("list-by-vehicle-button")));
             ViewByVehicle.click();
