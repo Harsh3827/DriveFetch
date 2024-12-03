@@ -3,9 +3,6 @@ package org.harshpatel.drivefetch;
 import Model.CarInfo;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import features.*;
-import htmlparser.AvisParser;
-import htmlparser.BudgetParser;
-import htmlparser.CarRentalParser;
 import org.openqa.selenium.chrome.ChromeDriver;
 import webcrawling.*;
 
@@ -43,12 +40,8 @@ public class Entry {
                     performCrawling(); // Start web crawling for car rental sites
                     break;
                 case 2:
-                    if (checkHtmlFiles()) {
-                        List<CarInfo> carInfoList = getAllCarDetails();
-                        filter_Car_Deals(carInfoList);
-                    } else {
-                        System.out.println("No HTML files available for parsing.");
-                    }
+                    List<CarInfo> carInfoList = getAllCarDetails();
+                    filter_Car_Deals(carInfoList);
                     break;
                 case 3:
                     System.out.println("Exiting program. Goodbye!");
@@ -59,59 +52,6 @@ public class Entry {
         }
     }
 
-    private static boolean files_Avis() {
-        File avis_Fr = new File("AvisFiles");
-
-        if (avis_Fr.exists() && avis_Fr.isDirectory()) {
-            File[] fss = avis_Fr.listFiles();
-
-            if (fss != null) {
-                for (File fie : fss) {
-                    if (fie.isFile() && fie.getName().endsWith(".html")) {
-                        return true;
-                    }
-                }
-            }
-        }
-
-        return false;
-    }
-
-    private static boolean files_InBudget() {
-        File budget_Fr = new File("BudgetFiles");
-
-        if (budget_Fr.exists() && budget_Fr.isDirectory()) {
-            File[] fss = budget_Fr.listFiles();
-
-            if (fss != null) {
-                for (File fie : fss) {
-                    if (fie.isFile() && fie.getName().endsWith(".html")) {
-                        return true;
-                    }
-                }
-            }
-        }
-
-        return false;
-    }
-
-    private static boolean files_CarRental() {
-        File carrentalFr = new File("CarRentalFiles");
-
-        if (carrentalFr.exists() && carrentalFr.isDirectory()) {
-            File[] fiss = carrentalFr.listFiles();
-
-            if (fiss != null) {
-                for (File fie : fiss) {
-                    if (fie.isFile() && fie.getName().endsWith(".html")) {
-                        return true;
-                    }
-                }
-            }
-        }
-
-        return false;
-    }
 
     public static List<CarInfo> getAllCarDetails() {
         List<CarInfo> listOfCars = new ArrayList<>();
@@ -152,10 +92,6 @@ public class Entry {
         for (Map.Entry<String, Integer> entry : frequencyMap.entrySet()) {
             System.out.println("Total Available \"" + entry.getKey() + "\" cars: \"" + entry.getValue() + "\"");
         }
-    }
-
-    private static boolean checkHtmlFiles() {
-        return files_Avis() || files_InBudget() || files_CarRental();
     }
 
     private static void filter_Car_Deals(List<CarInfo> CarInfo_List) {
@@ -416,7 +352,7 @@ public class Entry {
                     CarInfo.getCarCompany());
         }
 
-        System.out.println("+-------------------------+----------------------------------------+-------------------+------------------------+------------------------+--------------------------+--------------------+");
+        System.out.println("+-------------------------+----------------------------------------+-------------------+------------------------+------------------------+--------------------------+");
     }
 
 
@@ -445,18 +381,6 @@ public class Entry {
         }
     }
 
-    private static List<CarInfo> performParsing() {
-        List<CarInfo> listt = new ArrayList<>();
-
-        listt.addAll(CarRentalParser.fetchAll_CarRental_Deals());
-
-        listt.addAll(AvisParser.parse_Files());
-        listt.addAll(BudgetParser.parse_Files());
-
-        save_CarInfo_To_Json(listt, "filtered_car_deals");
-
-        return listt;
-    }
 
     @SuppressWarnings("deprecation")
     private static void performCrawling() throws UnsupportedEncodingException {
@@ -475,25 +399,6 @@ public class Entry {
                 System.out.print("Enter pickup location: ");
                 pickup_Location = scanner.nextLine();
             } while (!inputValidator.isValidCityName(pickup_Location));
-
-            // String final_Selected_PickupLoc = AvisCanadaCrawl.resolve_Location(pickup_Location, "PicLoc_value", "PicLoc_dropdown");
-            //BudgetCanadaCrawl.resolve_Location(final_Selected_PickupLoc.split(",")[0], "PicLoc_value", "PicLoc_dropdown");
-            //CarRentalWebCrawl.handle_PickUp_Location(final_Selected_PickupLoc);
-            //CarRentalWebCrawl.handle_PickUp_Location(final_Selected_PickupLoc.split(",")[0]);
-            //BudgetCanadaCrawl.resolve_Location(pickup_Location, "PicLoc_value", "PicLoc_dropdown");
-
-/*
-            String dropOff_Location;
-            do {
-                dropOff_Location = same_Location_Response.equals("n") ? get_DropOff_Location(scanner) : pickup_Location;
-            } while (!inputValidator.isValidCityName(dropOff_Location));
-*/
-
-           // if (same_Location_Response.equals("n")) {
-             //   String finalSelectedDropOffLoc = AvisCanadaCrawl.resolve_Location(dropOff_Location, "DropLoc_value", "DropLoc_dropdown");
-              //  BudgetCanadaCrawl.resolve_Location(finalSelectedDropOffLoc, "DropLoc_value", "DropLoc_dropdown");
-                //CarRentalWebCrawl.handle_DropOff_Location(finalSelectedDropOffLoc);
-          //  }
 
             String pickup_Date;
             do {
@@ -635,9 +540,9 @@ public class Entry {
             System.out.print("Do you want to continue? (yes/no): ");
             response = scanner.nextLine();
             if (response.equalsIgnoreCase("yes")) {
-             //   AvisCanadaCrawl.reset_Driver();
+               //AvisCanadaCrawl.reset_Driver();
                // BudgetCanadaCrawl.reset_Driver();
-             //   CarRentalWebCrawl.reset_Driver();
+                //CarRentalWebCrawl.reset_Driver(driver);
             }
         } while (response.equalsIgnoreCase("yes"));
 
@@ -657,10 +562,5 @@ public class Entry {
             e.printStackTrace();
             return null;
         }
-    }
-
-    private static String get_DropOff_Location(Scanner scanner) {
-        System.out.print("Enter drop-off location: ");
-        return scanner.nextLine();
     }
 }
