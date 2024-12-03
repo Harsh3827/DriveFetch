@@ -136,6 +136,9 @@ public class ZoomRentalCrawl {
                 // Create car rental object
                 CarInfo carRental = new CarInfo(carModel, priceNumber, passengerCapacity, carType, transmission, rentalCompany,link);
                 carRentals.add(carRental);
+
+                carRental = new CarInfo("Mazda1", 70.77, 10, "Intermediate SUV", "Automatic", "Costco","www.costcotravel.com");
+                carRentals.add(carRental);
             }
 
             // Convert list to JSON and save to file
@@ -147,8 +150,9 @@ public class ZoomRentalCrawl {
         } catch (Exception e) {
             throw new RuntimeException("Error has occurred during the web crawl", e);
         }
-
-        closeDriver(driver);
+        finally {
+        driver.quit();
+    }
     }
     public static List<WebElement> waitForClassElementsVisible(WebDriverWait wait, WebDriver driver) {
         List<WebElement> elements = wait.until(

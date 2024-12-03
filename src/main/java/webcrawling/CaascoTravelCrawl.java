@@ -71,7 +71,7 @@ public class CaascoTravelCrawl {
                 String rentalCompany = "CaascoTravel";
 
                 // Create car rental object
-                CarInfo carRental = new CarInfo(makeModel, price, Integer.parseInt(passengers), carClass, bags, rentalCompany,link);
+                CarInfo carRental = new CarInfo(makeModel, price, Integer.parseInt(passengers), carClass, "Automatic", rentalCompany,link);
                 caascoData.add(carRental);
             }
 
@@ -80,7 +80,7 @@ public class CaascoTravelCrawl {
             objectMapper.writeValue(new File("Web_Crawl_CaascoTravelData.json"), caascoData);
 
             // Close the chrome driver
-//            closeDriver(driver);
+        closeDriver(driver);
 
         } catch (Exception e) {
             throw new RuntimeException("Error has occurred during the web crawl", e);

@@ -95,7 +95,7 @@ public class orbitzCrawl {
 
             String content = driver.getPageSource();
             WebCrawler.createF_ile(orbitz_url, content, "orbitz", "OrbitzFiles/");
-
+            closeDriver(driver);
         } catch (Exception e) {
             throw new RuntimeException("Error occurred during the web crawl", e);
         }
@@ -142,9 +142,7 @@ public class orbitzCrawl {
         LocalDate end = LocalDate.parse(endDate);
         return (int) Duration.between(start.atStartOfDay(), end.atStartOfDay()).toDays();
     }
-    public static void closeDriver(){
-        ChromeOptions chrome_Options = new ChromeOptions();
-        WebDriver driver = new ChromeDriver(chrome_Options);
+    public static void closeDriver(WebDriver driver){
         driver.quit();
     }
 }

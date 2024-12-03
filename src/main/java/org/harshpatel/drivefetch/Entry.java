@@ -180,7 +180,7 @@ public class Entry {
             while (!validInput) {
                 try {
                     do {
-                        System.out.println("\nSelect option to filter the deals:\n1. Display deals by price (LOW - HIGH)\n2. Sort by Car Name\n3. Car Price\n4. Sort by Transmission Type\n5. Sort by Passenger Capacity (HIGH - LOW)\n6. Show Car Count Analysis\n7. Exit");
+                        System.out.println("\nSelect option to filter the deals:\n1. Display deals by price (LOW - HIGH)\n2. Sort by Car Name\n3. Car Price\n4. Sort by Transmission Type\n5. Sort by Passenger Capacity \n6. Show Car Count Analysis\n7. Exit");
                         option = scanner.next();
                     } while (!inputValidator.isValidInteger(Integer.parseInt(option)));
                     validInput = true;
@@ -221,7 +221,7 @@ public class Entry {
                     SearchFrequency.incrementSearchFrequency(preferred_Car_Name);
 
                     List<String> most_Searched_Cars = SearchFrequency.displayMostSearchedCars(car_List);
-
+                    System.out.println();
                     if (!most_Searched_Cars.isEmpty()) {
                         System.out.println("Most Searched Cars:");
                         for (String car : most_Searched_Cars) {
@@ -398,31 +398,12 @@ public class Entry {
                 .collect(Collectors.toList());
     }
 
-/*
-    private static List<CarInfo> filterBy_Luggage_Capacity(List<CarInfo> carInfoList, int preferredLuggageCapacity) {
-        // Find the car with the highest luggage capacity
-        int maxLuggageCapacity = carInfoList.stream()
-                .mapToInt(car -> car.getLargeBag() + car.getSmallBag())
-                .max()
-                .orElse(0); // Default to 0 if the list is empty
-
-        // Adjust preferred luggage capacity if it exceeds the maximum available capacity
-        int effectiveLuggageCapacity = Math.min(preferredLuggageCapacity, maxLuggageCapacity);
-
-        // Filter and sort cars based on the effective luggage capacity
-        return carInfoList.stream()
-                .filter(car -> car.getLargeBag() + car.getSmallBag() >= effectiveLuggageCapacity)
-                .sorted(Comparator.comparingDouble(CarInfo::getPrice))
-                .collect(Collectors.toList()); // Compatible with Java versions below 16
-    }
-*/
-
 
 
     private static void display_Car_List(List<CarInfo> CarInfo_List) {
-        System.out.println("+-------------------------+----------------------------------------+-------------------+------------------------+------------------------+--------------------------+--------------------+");
+        System.out.println("+-------------------------+----------------------------------------+-------------------+------------------------+------------------------+--------------------------+");
         System.out.println("|      Car Group          |          Car Model                     |    Rent Price     |   Passenger Capacity   |    Transmission Type    |     Rental Company      |");
-        System.out.println("+-------------------------+----------------------------------------+-------------------+------------------------+------------------------+--------------------------+--------------------+");
+        System.out.println("+-------------------------+----------------------------------------+-------------------+------------------------+------------------------+--------------------------+");
 
         for (CarInfo CarInfo : CarInfo_List) {
             System.out.printf("| %-23s | %-38s | $%-16.2f | %-22d | %-24s | %-22s |\n",
@@ -480,21 +461,14 @@ public class Entry {
     private static void performCrawling() throws UnsupportedEncodingException {
         Scanner scanner = new Scanner(System.in);
 
-       //AvisCanadaCrawl.init_Driver();
-        //System.out.println("avis");
-        //BudgetCanadaCrawl.init_Driver();
-        //System.out.println("budget");
-        //CarRentalWebCrawl.initDriver();
-        System.out.println("carrental");
-
         String response;
         do {
             String same_Location_Response;
-            do {
+  /*          do {
                 System.out.print("Are pickup and drop-off locations the same? (y/n): ");
                 same_Location_Response = scanner.nextLine().toLowerCase();
             } while (!inputValidator.isValidYesNoResponse(same_Location_Response));
-
+*/
             String pickup_Location;
             do {
                 System.out.print("Enter pickup location: ");
@@ -507,16 +481,18 @@ public class Entry {
             //CarRentalWebCrawl.handle_PickUp_Location(final_Selected_PickupLoc.split(",")[0]);
             //BudgetCanadaCrawl.resolve_Location(pickup_Location, "PicLoc_value", "PicLoc_dropdown");
 
+/*
             String dropOff_Location;
             do {
                 dropOff_Location = same_Location_Response.equals("n") ? get_DropOff_Location(scanner) : pickup_Location;
             } while (!inputValidator.isValidCityName(dropOff_Location));
+*/
 
-            if (same_Location_Response.equals("n")) {
-                String finalSelectedDropOffLoc = AvisCanadaCrawl.resolve_Location(dropOff_Location, "DropLoc_value", "DropLoc_dropdown");
+           // if (same_Location_Response.equals("n")) {
+             //   String finalSelectedDropOffLoc = AvisCanadaCrawl.resolve_Location(dropOff_Location, "DropLoc_value", "DropLoc_dropdown");
               //  BudgetCanadaCrawl.resolve_Location(finalSelectedDropOffLoc, "DropLoc_value", "DropLoc_dropdown");
                 //CarRentalWebCrawl.handle_DropOff_Location(finalSelectedDropOffLoc);
-            }
+          //  }
 
             String pickup_Date;
             do {
@@ -541,8 +517,7 @@ public class Entry {
 
             int duration = orbitzCrawl.calculateDurationISO(pickup_Date_orbit,return_Date_orbit);
 
-            CarRentalWebCrawl.WebCrawlCarRentals(pickup_Date_orbit,return_Date_orbit,duration,pickup_Location);
-            CaascoTravelCrawl.WebCrawlCaascoTravel(pickup_Date,return_Date,duration,pickup_Location);
+
             //orbitzCrawl.WebCrawlOrbitz(pickup_Date_orbit,return_Date_orbit,duration,pickup_Location);
 
            // AvisCanadaCrawl.resolve_Date(pickup_Date, return_Date);
@@ -640,9 +615,11 @@ public class Entry {
                 }
 
             } while (!inputValidator.isValidTime(return_Time));
+            CarRentalWebCrawl.WebCrawlCarRentals(pickup_Date_orbit,return_Date_orbit,duration,pickup_Location);
+            CaascoTravelCrawl.WebCrawlCaascoTravel(pickup_Date,return_Date,duration,pickup_Location);
             orbitzCrawl.WebCrawlOrbitz(pickup_Date_orbit,return_Date_orbit,duration,pickup_Location,pickup_Time,return_Time);
             ZoomRentalCrawl.WebCrawlZoomRentals(pickup_Date,return_Date,duration,pickup_Location,pickup_Time,return_Time);
-            // CostcoTravelCrawl.WebCrawlCaascoTravel(pickup_Date,return_Date,duration,pickup_Location);
+           //  CostcoTravelCrawl.WebCrawlCaascoTravel(pickup_Date,return_Date,duration,pickup_Location);
             try {
               //  AvisCanadaCrawl.resolve_Time(pickup_Time, return_Time);
                // BudgetCanadaCrawl.resolve_Time(pickup_Time, return_Time);
@@ -665,8 +642,7 @@ public class Entry {
 
       //  AvisCanadaCrawl.close_Driver();
        // BudgetCanadaCrawl.close_Driver();
-        CarRentalWebCrawl.closeDriver();
-        orbitzCrawl.closeDriver();
+        // CarRentalWebCrawl.closeDriver();
     }
 
     public static String convert_Date_Format(String inputtDdate) {

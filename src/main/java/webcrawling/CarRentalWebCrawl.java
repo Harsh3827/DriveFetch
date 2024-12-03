@@ -75,6 +75,8 @@ public class  CarRentalWebCrawl {
             ObjectMapper objectMapper = new ObjectMapper();
             objectMapper.writeValue(new File("Web_Crawl_CarrentalData.json"), carRentals);
 
+            closeDriver(driver);
+
         } catch (Exception e) {
             throw new RuntimeException("Error has occurred during the web crawl", e);
         }
@@ -101,9 +103,7 @@ public class  CarRentalWebCrawl {
         return elements;
     }
 
-    public static void closeDriver(){
-        ChromeOptions chrome_Options = new ChromeOptions();
-        WebDriver driver = new ChromeDriver(chrome_Options);
+    public static void closeDriver(WebDriver driver){
         driver.quit();
     }
 
