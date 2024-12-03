@@ -16,53 +16,51 @@ class JSONReader {
 }
 
 public class PageRanking {
-    private Map<String, Integer> page_Scores;
-    private PriorityQueue<Map.Entry<String, Integer>> priority_Queue;
+    private Map<String, Integer> pageScores;
+    private PriorityQueue<Map.Entry<String, Integer>> priorityQueue;
+    private BinaryTree invertedIndex; // The inverted index
 
-    public PageRanking() {
-        page_Scores = new HashMap<>();
+    public PageRanking(BinaryTree invertedIndex) {
+        pageScores = new HashMap<>();
         // Initialize priority queue with a comparator for sorting
-        priority_Queue = new PriorityQueue<>(Comparator.comparing(Map.Entry::getValue, Comparator.reverseOrder()));
+        priorityQueue = new PriorityQueue<>(Comparator.comparing(Map.Entry::getValue, Comparator.reverseOrder()));
+        this.invertedIndex = invertedIndex; // Pass the inverted index here
     }
 
-    public void calculate_Page_Rank(Map<String, Integer> document_Frequencies) {
-
-        if (document_Frequencies != null) {
-            // Simple ranking based on frequency (replace with more advanced ranking)
-            page_Scores.putAll(document_Frequencies);
-
-            // Populate the priority queue for ranking
-            priority_Queue.addAll(page_Scores.entrySet());
-        } else {
-            System.out.println("Error: Document frequencies are null");
-        }
-
-    }
     // get ranked pages
     public List<Map.Entry<String, Integer>> get_Ranked_Pages() {
         // Get and return the ranked pages
         List<Map.Entry<String, Integer>> ranked_Pages = new ArrayList<>();
 
-        while (!priority_Queue.isEmpty()) {
-            ranked_Pages.add(priority_Queue.poll());
+        while (!priorityQueue.isEmpty()) {
+            ranked_Pages.add(priorityQueue.poll());
         }
 
         return ranked_Pages;
     }
 
     public void calculate_Page_Rank_FromJSON(List<Map<String, Object>> jsonData, String keyword) {
-        for (Map<String, Object> car : jsonData) {
-            String name = car.get("name").toString();
-            String link = car.get("link").toString();
-
-            // If the car name contains the keyword, add to scores
-            if (name.toLowerCase().contains(keyword.toLowerCase())) {
-                page_Scores.put(link, page_Scores.getOrDefault(link, 0) + 1);
-            }
-        }
-
         // Populate the priority queue
-        priority_Queue.addAll(page_Scores.entrySet());
+        priorityQueue.addAll(pageScores.entrySet());
+
+        // Retrieve documents (pages) from the inverted index
+        Map<String, Integer> termFrequencies = invertedIndex.search(keyword);
+
+        if (termFrequencies != null) {
+            for (Map.Entry<String, Integer> entry : termFrequencies.entrySet()) {
+                String page = entry.getKey();
+                int frequency = entry.getValue();
+
+                // Simple scoring: frequency + existing score
+                int newScore = pageScores.getOrDefault(page, 0) + frequency;
+                pageScores.put(page, newScore);
+            }
+
+            // Populate the priority queue
+            priorityQueue.addAll(pageScores.entrySet());
+        } else {
+            System.out.println("No pages found for keyword: " + keyword);
+        }
     }
 
     public static void show_Ranking(String keyword) {
@@ -71,8 +69,10 @@ public class PageRanking {
             String filePath = "JsonData\\All.json"; // Path to the JSON file
             List<Map<String, Object>> jsonData = JSONReader.readJSON(filePath);
 
+            // Create and populate the inverted index
+            BinaryTree invertedIndex = InvertedIndexing.indexDocumentsFromJSON();
             // Create a PageRanking object
-            PageRanking pageRanking = new PageRanking();
+            PageRanking pageRanking = new PageRanking(invertedIndex);
 
             // Calculate PageRank based on the JSON data and the provided keyword
             pageRanking.calculate_Page_Rank_FromJSON(jsonData, keyword);
@@ -84,31 +84,6 @@ public class PageRanking {
             for (Map.Entry<String, Integer> entry : rankedPages) {
                 System.out.println(count + ". " + entry.getKey() + " (Score: " + entry.getValue() + ")");
                 count++;
-            }
-        } catch (IOException e) {
-            System.out.println("Error reading JSON file: " + e.getMessage());
-        }
-    }
-
-    public static void main(String[] args) {
-        try {
-            // Read JSON data
-            String filePath = "JsonData\\All.json"; // Path to the JSON file
-            List<Map<String, Object>> jsonData = JSONReader.readJSON(filePath);
-
-            // Keyword for ranking
-            String keyword = "Kia"; // Example keyword
-
-            // Create PageRanking object
-            PageRanking pageRanking = new PageRanking();
-
-            // Rank pages based on the keyword
-            pageRanking.calculate_Page_Rank_FromJSON(jsonData, keyword);
-
-            // Get and display ranked pages
-            List<Map.Entry<String, Integer>> rankedPages = pageRanking.get_Ranked_Pages();
-            for (Map.Entry<String, Integer> entry : rankedPages) {
-                System.out.println(entry.getKey() + ": " + entry.getValue());
             }
         } catch (IOException e) {
             System.out.println("Error reading JSON file: " + e.getMessage());
