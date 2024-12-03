@@ -106,12 +106,27 @@ public class Entry {
 
 
     private static void fetch_Car_Analysis(List<CarInfo> CarInfo_List) {
+        // Get the frequency count map from the FrequencyCount class
         Map<String, Integer> frequencyMap = FrequencyCount.get_Frequency_Count("D:\\Project\\DriveFetch\\JsonData\\All.json");
 
-        for (Map.Entry<String, Integer> entry : frequencyMap.entrySet()) {
-            System.out.println("Total Available \"" + entry.getKey() + "\" cars: \"" + entry.getValue() + "\"");
+        // Check if the frequency map is empty
+        if (frequencyMap.isEmpty()) {
+            System.out.println("No car data found.");
+            return;
         }
+
+        // Sort the map by value (frequency) in descending order
+        List<Map.Entry<String, Integer>> sortedEntries = new ArrayList<>(frequencyMap.entrySet());
+        sortedEntries.sort((entry1, entry2) -> entry2.getValue().compareTo(entry1.getValue()));
+
+        // Print the sorted car analysis
+        System.out.println("\n-------------------- Car Analysis --------------------");
+        for (Map.Entry<String, Integer> entry : sortedEntries) {
+            System.out.println(String.format("Car: %-20s | Total Available: %-5d", entry.getKey(), entry.getValue()));
+        }
+        System.out.println("-------------------------------------------------------");
     }
+
 
     private static void filter_Car_Deals(List<CarInfo> CarInfo_List) {
         System.out.println("");
